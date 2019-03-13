@@ -11,6 +11,7 @@ import IconButton from "../UI/IconButton";
 import LocaleSwitcher from "./LocaleSwitcher";
 
 const Wrapper = styled.div`
+  z-index: 10000000;
   position: fixed;
   top: 0;
   right: 0;

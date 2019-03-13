@@ -6,6 +6,7 @@ import { useNavState } from "../../containers/Nav";
 import { colors } from "../../styles";
 
 const StyledButton = styled(IconButton)`
+  z-index: 1000000;
   position: absolute;
   display: block;
   top: 30px;

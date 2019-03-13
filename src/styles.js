@@ -24,3 +24,35 @@ export const query = Object.keys(media).reduce((acc, key) => {
   `;
   return acc;
 }, {});
+
+export const fluidTypography = (
+  minFontSize,
+  maxFontSize,
+  minScreenSize,
+  maxScreenSize
+) => {
+  Object.values([
+    minFontSize,
+    maxFontSize,
+    minScreenSize,
+    maxScreenSize
+  ]).forEach(arg => {
+    if (typeof arg !== "number")
+      throw new Error(
+        "fluidTypography only accepts numbers as its parameters indicating sizes in px"
+      );
+  });
+
+  return css`
+    font-size: ${minFontSize}px;
+    @media screen and (min-width: ${minScreenSize}px) {
+      font-size: calc(
+        ${minFontSize}px + (${maxFontSize - minFontSize}) *
+          ((100vw - ${minScreenSize}px) / (${maxScreenSize - minScreenSize}))
+      );
+    }
+    @media screen and (min-width: ${maxScreenSize}px) {
+      font-size: ${maxFontSize}px;
+    }
+  `;
+};

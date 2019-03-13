@@ -1,5 +1,6 @@
-import { createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import { addLocaleData } from "react-intl";
+import { Link } from "react-router-dom";
 import PL_LOCALE_DATA from "react-intl/locale-data/pl";
 import EN_LOCALE_DATA from "react-intl/locale-data/en";
 import EN_MESSAGES from "./assets/locale/en.json";
@@ -67,4 +68,24 @@ export const useLocale = () => {
 export const useLocaleMessages = () => {
   const { messages } = useContext(LocaleContext);
   return messages;
+};
+
+export const LocaleLink = ({ to, children, ...props }) => {
+  const [locale] = useLocale();
+  return (
+    <Link to={localizePath(locale, to)} {...props}>
+      {children}
+    </Link>
+  );
+};
+
+export const TranslatedLocaleLink = ({ to, id, ...props }) => {
+  const [locale] = useLocale();
+  const { [id]: message } = useLocaleMessages();
+
+  return (
+    <Link to={localizePath(locale, to)} {...props}>
+      {message}
+    </Link>
+  );
 };

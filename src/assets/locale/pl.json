@@ -6,5 +6,14 @@
   "nav.testimonials": "Opinie Pacjentów",
   "nav.staff": "Gabinet i Personal",
   "nav.directions": "Dojazd",
-  "nav.contact": "Kontakt"
+  "nav.contact": "Kontakt",
+  "home.cta.choose-to-be": "POCZUJ SIĘ",
+  "home.cta.beautiful": "PIĘKNA",
+  "home.cta.choose": "ZAUFAJ",
+  "home.cta.doctor-marta": "Marcie Wilczyńskiej-Staniul",
+  "home.attr.patients.text": "Setki zadowolonych pacjentów",
+  "home.attr.patients.link": "PRZECZYTAJ OPINIE O DOKTOR MARCIE",
+  "home.attr.doctor.text": "Wykwalifikowany lekarz z wieloma certyfikatami",
+  "home.attr.doctor.link": "DOWIEDZ SIĘ WIECEJ O DOKTOR MARCIE",
+  "home.cta.button": "umów wizytę"
 }
