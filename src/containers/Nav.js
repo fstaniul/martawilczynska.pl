@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import NavButton from "../components/Nav/Button";
+import NavOpenButton from "../components/Nav/OpenButton";
 import NavPanel from "../components/Nav/Panel";
 
 const NavContext = createContext();
@@ -11,12 +11,12 @@ export const useNavState = () => {
 export const NavContextConsumer = NavContext.Consumer;
 
 const Nav = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
     <NavContext.Provider value={{ setOpen, open }}>
       <>
-        <NavButton />
+        <NavOpenButton />
         <NavPanel />
       </>
     </NavContext.Provider>

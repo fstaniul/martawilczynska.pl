@@ -1,4 +1,4 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faTimes);
+library.add(faBars, faTimes);
