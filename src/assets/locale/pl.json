@@ -15,5 +15,7 @@
   "home.attr.patients.link": "PRZECZYTAJ OPINIE O DOKTOR MARCIE",
   "home.attr.doctor.text": "Wykwalifikowany lekarz z wieloma certyfikatami",
   "home.attr.doctor.link": "DOWIEDZ SIĘ WIECEJ O DOKTOR MARCIE",
-  "home.cta.button": "umów wizytę"
+  "home.cta.button": "umów wizytę",
+  "home.testimonials.header.title": "OPINIE PACJENTÓW",
+  "home.testimonials.header.subtitle": "opinie pacjentów wystaione na portalu {znanylekarz}."
 }
