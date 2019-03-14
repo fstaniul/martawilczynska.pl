@@ -4,7 +4,7 @@ import { colors, query, media, fluidTypography } from "../styles";
 
 const HMOD = {
   m: 1.2,
-  d: 1.5
+  d: 1.4
 };
 
 const GlobalStyle = createGlobalStyle`

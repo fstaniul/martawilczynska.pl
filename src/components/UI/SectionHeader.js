@@ -1,14 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { colors } from "../../styles";
+import { colors, fluidTypography, media, query } from "../../styles";
 
 const Wrapper = styled.div`
-  padding: 2rem 1rem;
+  padding: 1.5rem;
+  ${query.md`
+  padding: 40px 50px;
+`}
 `;
 
 const Title = styled.h3`
   color: ${({ color }) => color};
+  font-weight: 900;
+  ${fluidTypography(20, 40, media.sm, media.lg)};
 `;
 
 Title.propTypes = {

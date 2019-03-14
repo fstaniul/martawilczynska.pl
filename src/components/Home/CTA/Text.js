@@ -5,7 +5,7 @@ import { media, fluidTypography } from "../../../styles";
 
 const Wrapper = styled.h1`
   font-weight: 400;
-  ${fluidTypography(20, 32, media.sm, media.lg)}
+  ${fluidTypography(20, 42, media.sm, media.lg)}
 `;
 
 const Name = styled.span`

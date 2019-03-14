@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { injectIntl } from "react-intl";
+import { injectIntl, FormattedMessage } from "react-intl";
 import { LocaleLink } from "../../../locale";
 import { colors } from "../../../styles";
 
@@ -29,15 +29,17 @@ const AttributeLink = styled(LocaleLink)`
 `;
 
 const Attribute = injectIntl(
-  ({ text, linkTo, linkText, intl: { formatMessage } }) => {
+  ({ text, linkTo, linkText, intl: { formatMessage }, noLink }) => {
     return (
       <Wrapper>
         <PaddedIcon icon="check" size="2x" />
         <div>
-          <div>{formatMessage({ id: text })}</div>
-          <AttributeLink to={linkTo}>
-            {formatMessage({ id: linkText })}
-          </AttributeLink>
+          <FormattedMessage id={text} values={{ br: <br /> }} />
+          {!noLink && (
+            <AttributeLink to={linkTo}>
+              {formatMessage({ id: linkText })}
+            </AttributeLink>
+          )}
         </div>
       </Wrapper>
     );
@@ -57,6 +59,7 @@ const Attributes = () => {
         linkText="home.attr.doctor.link"
         linkTo="about"
       />
+      <Attribute text="home.attr.clinic.text" noLink />
     </Container>
   );
 };

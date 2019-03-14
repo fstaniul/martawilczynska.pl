@@ -12,13 +12,14 @@ const StyledImage = styled.img`
 
   ${query.md`
     position: absolute;
-    width: 60%;
+    width: 50%;
     bottom: 0;
     right: 0;
   `}
 
   ${query.xl`
-    width: 45%;
+    right: 100px;
+    width: 40%;
   `}
 `;
 

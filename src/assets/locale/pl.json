@@ -1,5 +1,6 @@
 {
   "page.title": "Marta Wilczyńska-Staniul - Specialista Chirurgii Plastycznej i Ogólnej",
+  "page.loading": "Wczytywanie",
   "nav.home": "Strona Tytułowa",
   "nav.about": "O Mnie",
   "nav.treatments": "Zabiegi Operacyjne",
@@ -11,10 +12,11 @@
   "home.cta.beautiful": "PIĘKNA",
   "home.cta.choose": "ZAUFAJ",
   "home.cta.doctor-marta": "Marcie Wilczyńskiej-Staniul",
-  "home.attr.patients.text": "Setki zadowolonych pacjentów",
-  "home.attr.patients.link": "PRZECZYTAJ OPINIE O DOKTOR MARCIE",
-  "home.attr.doctor.text": "Wykwalifikowany lekarz z wieloma certyfikatami",
-  "home.attr.doctor.link": "DOWIEDZ SIĘ WIECEJ O DOKTOR MARCIE",
+  "home.attr.patients.text": "Setki zadowolonych pacjentów.",
+  "home.attr.patients.link": "Przeczytaj ich opinie.",
+  "home.attr.doctor.text": "Wykwalifikowany lekarz z wieloma certyfikatami.",
+  "home.attr.doctor.link": "Dowiedz się wiecej o doktor marcie.",
+  "home.attr.clinic.text": "Wysoko wyspecializowana clinika z najlepszym sprzętem,{br}aby zapewnić pacjentom wygode i bezpieczeństwo.",
   "home.cta.button": "umów wizytę",
   "home.testimonials.header.title": "OPINIE PACJENTÓW",
   "home.testimonials.header.subtitle": "opinie pacjentów wystaione na portalu {znanylekarz}."

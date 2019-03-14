@@ -3,13 +3,16 @@ import { BrowserRouter } from "react-router-dom";
 import Router from "./containers/Router";
 import Localization from "./containers/Localization";
 import GlobalStyles from "./containers/GlobalStyles";
+import BackendService from "./containers/BackendService";
 
 const Root = () => {
   return (
     <BrowserRouter>
       <Localization>
         <GlobalStyles>
-          <Router />
+          <BackendService>
+            <Router />
+          </BackendService>
         </GlobalStyles>
       </Localization>
     </BrowserRouter>

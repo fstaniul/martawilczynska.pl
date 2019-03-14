@@ -3,6 +3,10 @@ import { FormattedMessage } from "react-intl";
 import styled from "styled-components";
 import SectionHeader from "../../UI/SectionHeader";
 import { colors } from "../../../styles";
+import { useBackendData } from "../../../containers/BackendService";
+import Testimony from "../../Testimonials/Testimony";
+import Loader from "../../Loader";
+import Error from "../../Error";
 
 const ContentWrapper = styled.div`
   padding: 0 1rem;
@@ -40,10 +44,21 @@ const Header = () => (
 );
 
 const TestimonialsSection = () => {
+  const { loaded, loading, data, error, reload } = useBackendData(
+    "testimonials",
+    "/api/testimonials"
+  );
+
   return (
     <div>
       <Header />
-      <ContentWrapper />
+      <ContentWrapper>
+        {loading && <Loader />}
+        {!loading &&
+          loaded &&
+          data.map((testimony, i) => <Testimony key={i} {...testimony} />)}
+        {!loading && !loaded && error && <Error err={error} />}
+      </ContentWrapper>
     </div>
   );
 };
