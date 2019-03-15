@@ -7,6 +7,7 @@ import { colors, fluidTypography, media } from "../../styles";
 const Wrapper = styled.div`
   padding: 1rem;
   color: ${colors.black};
+  background: ${colors.silver};
 `;
 
 const HeaderWrapper = styled.div`
@@ -14,6 +15,7 @@ const HeaderWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 20px;
 `;
 
 const StarIcon = styled(FontAwesomeIcon).attrs({
@@ -31,17 +33,18 @@ const DateDisplay = styled.div`
 `;
 
 const Stars = ({ stars }) => {
-  return (
-    <div>
-      {new Array(stars).fill(<StarIcon color={colors.blue} />)}
-      {new Array(5 - stars).fill(<StarIcon color={colors.gray} />)}
-    </div>
-  );
+  const renderedStars = new Array(5)
+    .fill(true)
+    .map((_, i) => (
+      <StarIcon key={i} color={i < stars ? colors.blue : colors.gray} />
+    ));
+
+  return <div>{renderedStars}</div>;
 };
 
-const Testimony = ({ content, stars, name, date }) => {
+const Testimony = ({ content, stars, name, date, style }) => {
   return (
-    <Wrapper>
+    <Wrapper style={style}>
       <HeaderWrapper>
         <div>
           <Name>{name}</Name>

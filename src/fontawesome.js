@@ -3,7 +3,8 @@ import {
   faBars,
   faCheck,
   faTimes,
-  faHeartbeat
+  faHeartbeat,
+  faStar
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBars, faCheck, faTimes, faHeartbeat);
+library.add(faBars, faCheck, faTimes, faHeartbeat, faStar);

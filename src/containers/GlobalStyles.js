@@ -18,9 +18,13 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: "Raleway", sans-serif;
         font-weight: 400;
-        ${fluidTypography(12, 16, media.sm, media.lg)}
+        ${fluidTypography(14, 16, media.sm, media.lg)}
         color: ${colors.black};
         background: ${colors.white};
+    }
+
+    p {
+      line-height: 1.5em;
     }
 
     ${[1, 2, 3, 4, 5, 6].map(
