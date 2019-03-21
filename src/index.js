@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Root from "./Root";
-import "./fontawesome";
+import "./util/styles/normalize.css";
+import "./util/styles/skeleton.css";
+import "./util/fontawesome";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(<Root />, document.getElementById("react-root"));
