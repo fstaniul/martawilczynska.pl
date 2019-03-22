@@ -16,7 +16,7 @@ const ForamttedStringMessage = props => (
 
 const Title = () => {
   return (
-    <h1>
+    <h2>
       <ForamttedStringMessage id="home.cta.choose-to" />{" "}
       <TextBlack>
         <ForamttedStringMessage id="home.cta.beautiful" />
@@ -26,7 +26,7 @@ const Title = () => {
       <Name>
         <ForamttedStringMessage id="home.cta.doctor-marta" />
       </Name>
-    </h1>
+    </h2>
   );
 };
 

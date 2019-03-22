@@ -4,7 +4,19 @@ import {
   faCheck,
   faTimes,
   faHeartbeat,
-  faStar
+  faStar,
+  faUserInjured,
+  faBookOpen,
+  faProcedures
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBars, faCheck, faTimes, faHeartbeat, faStar);
+library.add(
+  faBars,
+  faCheck,
+  faTimes,
+  faHeartbeat,
+  faStar,
+  faUserInjured,
+  faBookOpen,
+  faProcedures
+);
