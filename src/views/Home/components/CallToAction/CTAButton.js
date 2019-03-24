@@ -8,17 +8,23 @@ const Button = styled(LocaleLink)`
   display: inline-block;
   outline: none;
   background: transparent;
-  padding: 1.5rem 5rem;
-  font-size: 2rem;
   font-weight: 300;
   text-transform: none;
   color: ${colors.white};
   height: auto;
   border-radius: 1000px;
   border: 1px solid ${colors.white};
-  transition: all 150ms linear;
   text-decoration: none;
   letter-spacing: 0.1rem;
+  line-height: 50px;
+  height: 50px;
+  width: 400px;
+  text-align: center;
+  box-sizing: border-box;
+  @media screen and (max-width: 400px) {
+    width: 90%;
+    margin: 0 5%;
+  }
 
   &:hover,
   &:focus,
