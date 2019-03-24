@@ -1,50 +1,81 @@
 import React from "react";
-import styled from "styled-components";
-import { FormattedMessage } from "react-intl";
-import { GradientButton } from "../../../components/Buttons";
-import FormattedStringMessage from "../../../util/FormattedStringMessage";
-import { SectionHeading, SubHeading } from "../../../components/Headings";
-import { TextAnchorTag } from "../../../components/Links/TextLink";
-import { LocaleLink } from "../../../util/locale";
+import Heading from "../components/Testimonials/Heading";
+import MultiCarousel from "../../../components/Carousels/MultiCarousel";
+import Testimony from "../../../components/Testiomony";
 
-const ZNANYLEKARZ_LINK =
-  "https://www.znanylekarz.pl/marta-wilczynska-staniul/chirurg-plastyczny-chirurg/wroclaw#tab=profile-reviews";
-
-const HeadingsWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 3rem 5rem;
-`;
-
-const ButtonsWrapper = styled.div``;
+const MOCK_DATA = [
+  {
+    content:
+      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
+    name: "mag.sendecka",
+    date: "21 grudnia 2018",
+    stars: 5
+  },
+  {
+    content:
+      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
+    name: "mag.sendecka",
+    date: "21 grudnia 2018",
+    stars: 5
+  },
+  {
+    content:
+      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
+    name: "mag.sendecka",
+    date: "21 grudnia 2018",
+    stars: 5
+  },
+  {
+    content:
+      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
+    name: "mag.sendecka",
+    date: "21 grudnia 2018",
+    stars: 5
+  },
+  {
+    content:
+      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
+    name: "mag.sendecka",
+    date: "21 grudnia 2018",
+    stars: 5
+  },
+  {
+    content:
+      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
+    name: "mag.sendecka",
+    date: "21 grudnia 2018",
+    stars: 5
+  },
+  {
+    content:
+      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
+    name: "mag.sendecka",
+    date: "21 grudnia 2018",
+    stars: 5
+  },
+  {
+    content:
+      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
+    name: "mag.sendecka",
+    date: "21 grudnia 2018",
+    stars: 5
+  },
+  {
+    content:
+      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
+    name: "mag.sendecka",
+    date: "21 grudnia 2018",
+    stars: 5
+  }
+];
 
 const Testimonials = () => {
   return (
     <div>
-      <HeadingsWrapper>
-        <SectionHeading>
-          <FormattedStringMessage id="home.testimonials.header" />
-          <SubHeading>
-            <FormattedMessage
-              id="home.testimonials.subheader"
-              values={{
-                znanylekarz: (
-                  <TextAnchorTag href={ZNANYLEKARZ_LINK} target="_blank">
-                    znanylekarz.pl
-                  </TextAnchorTag>
-                )
-              }}
-            />
-          </SubHeading>
-        </SectionHeading>
-        <ButtonsWrapper>
-          <GradientButton as={LocaleLink} to="testimonials">
-            <FormattedMessage id="home.testimonials.read-more-button" />
-          </GradientButton>
-        </ButtonsWrapper>
-      </HeadingsWrapper>
+      <Heading />
+      <MultiCarousel data={MOCK_DATA} elementWidth={500}>
+        {props => <Testimony {...props} />}
+      </MultiCarousel>
     </div>
   );
 };

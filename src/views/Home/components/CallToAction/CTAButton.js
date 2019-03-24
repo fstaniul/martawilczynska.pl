@@ -8,7 +8,7 @@ const Button = styled(LocaleLink)`
   display: inline-block;
   outline: none;
   background: transparent;
-  font-weight: 300;
+  font-weight: 700;
   text-transform: none;
   color: ${colors.white};
   height: auto;
@@ -21,6 +21,7 @@ const Button = styled(LocaleLink)`
   width: 400px;
   text-align: center;
   box-sizing: border-box;
+
   @media screen and (max-width: 400px) {
     width: 90%;
     margin: 0 5%;
