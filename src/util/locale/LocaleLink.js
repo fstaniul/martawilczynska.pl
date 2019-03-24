@@ -6,7 +6,7 @@ import { useLocale } from "./useLocale";
 export const LocaleLink = ({ to, children, ...props }) => {
   const [locale] = useLocale();
   return (
-    <Link to={localizePath(locale, to)} {...props}>
+    <Link {...props} to={localizePath(locale, to)}>
       {children}
     </Link>
   );

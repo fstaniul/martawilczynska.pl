@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { colors } from "../../../../util/styles";
-import { useLocale, localizePath } from "../../../../util/locale";
+import { LocaleLink } from "../../../../util/locale";
 
-const Button = styled(Link)`
+const Button = styled(LocaleLink)`
   display: inline-block;
   outline: none;
   background: transparent;
@@ -33,10 +32,8 @@ const Button = styled(Link)`
 `;
 
 const CTAButton = () => {
-  const [locale] = useLocale();
-
   return (
-    <Button to={localizePath(locale, "contact")}>
+    <Button to="contact">
       <FormattedMessage id="home.cta.button" />
     </Button>
   );
