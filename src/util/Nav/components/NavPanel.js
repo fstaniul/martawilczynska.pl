@@ -49,6 +49,8 @@ const CloseButton = styled(IconButton)`
   position: absolute;
   top: 30px;
   right: 30px;
+  padding: 0;
+  margin: 0;
 
   color: ${colors.silver};
   transition: 150ms ease color;

@@ -18,6 +18,7 @@
   "home.attr.doctor.link": "Dowiedz się wiecej o doktor marcie.",
   "home.attr.clinic.text": "Wysoko wyspecializowana clinika z najlepszym sprzętem,{br}aby zapewnić pacjentom wygode i bezpieczeństwo.",
   "home.cta.button": "umów wizytę",
-  "home.testimonials.header.title": "OPINIE PACJENTÓW",
-  "home.testimonials.header.subtitle": "opinie pacjentów wystaione na portalu {znanylekarz}."
+  "home.testimonials.header": "OPINIE PACJENTÓW",
+  "home.testimonials.subheader": "opinie pacjentów wystaione na portalu {znanylekarz}.",
+  "home.testimonials.read-more-button": "ZOBACZ WIĘCEJ"
 }

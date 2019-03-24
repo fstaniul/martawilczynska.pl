@@ -11,6 +11,8 @@ const StyledButton = styled(IconButton)`
   display: block;
   top: 30px;
   right: 30px;
+  padding: 0;
+  margin: 0;
 
   color: ${colors.silver};
   transition: 100ms color;
