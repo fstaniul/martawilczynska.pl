@@ -4,6 +4,7 @@ import Flex from "../../../components/Containers/Flex";
 import Testimony from "../../../components/Testiomony";
 import Heading from "../components/Testimonials/Heading";
 import SeeMoreButton from "../components/Testimonials/SeeMoreButton";
+import TestimonialsContainer from "../components/Testimonials/Container";
 
 const MOCK_DATA = [
   {
@@ -73,7 +74,7 @@ const MOCK_DATA = [
 
 const Testimonials = () => {
   return (
-    <div>
+    <TestimonialsContainer>
       <Heading />
       <MultiCarousel data={MOCK_DATA} elementWidth={500}>
         {props => <Testimony {...props} />}
@@ -81,7 +82,7 @@ const Testimonials = () => {
       <Flex align="center" justify="center">
         <SeeMoreButton hide="md" />
       </Flex>
-    </div>
+    </TestimonialsContainer>
   );
 };
 

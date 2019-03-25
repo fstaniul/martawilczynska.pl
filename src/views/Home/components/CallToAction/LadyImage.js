@@ -4,21 +4,14 @@ import { query } from "../../../../util/styles";
 
 const LadyImage = styled(ClosedEyesLadyImage)`
   display: block;
-  /* z-index: 1; */
+  width: auto;
+
+  ${query.sm`
+    max-width: 500px;
+  `}
 
   ${query.md`
-    /* width: 80%; */
-  `}
-
-  ${query.lg`
-    /* position: absolute;
-    // bottom: 0;
-    // right: 50px;
-    // width: 45%; */
-  `}
-
-  ${query.xl`
-    /* width: 750px; */
+    max-width: initial;
   `}
 `;
 

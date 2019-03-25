@@ -11,6 +11,7 @@ const Container = styled.div`
   background: ${colors.silver};
   color: ${colors.black};
   padding: 3rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 `;
 
 const HeadingWrapper = styled.div`
