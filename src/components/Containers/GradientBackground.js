@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { colors } from "../../styles";
-import gradientBackground from "../assets/img/gradient_background.png";
+import { colors } from "../../util/styles";
+import gradientBackground from "../../assets/img/gradient_background.png";
 
 export default styled.div`
   background-image: url(${gradientBackground});

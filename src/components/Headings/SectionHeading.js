@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { colors, query } from "../../util/styles";
 
 const SectionHeading = styled.h2`
-  color: ${colors.blue};
+  color: ${({ color }) => colors[color]};
   font-weight: 900;
   text-align: center;
 
@@ -10,5 +11,13 @@ const SectionHeading = styled.h2`
     text-align: left;
   `}
 `;
+
+SectionHeading.propTypes = {
+  color: PropTypes.oneOf(["white", "blue"])
+};
+
+SectionHeading.defaultProps = {
+  color: "blue"
+};
 
 export default SectionHeading;

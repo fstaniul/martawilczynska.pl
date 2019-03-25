@@ -7,7 +7,6 @@ import Title from "../components/CallToAction/Title";
 import Attributes from "./Attributes";
 import CTAButton from "../components/CallToAction/CTAButton";
 import LadyImage from "../components/CallToAction/LadyImage";
-import Flex from "../../../components/Containers/Flex";
 
 const CallToAction = () => {
   return (

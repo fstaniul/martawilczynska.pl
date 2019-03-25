@@ -4,8 +4,7 @@ import { FormattedMessage } from "react-intl";
 import FormattedStringMessage from "../../../../util/FormattedStringMessage";
 import { SectionHeading, SubHeading } from "../../../../components/Headings";
 import { TextAnchorTag } from "../../../../components/Links/TextLink";
-import { media, query } from "../../../../util/styles";
-import useWindowWidth from "../../../../util/hooks/useWindowWidth";
+import { query } from "../../../../util/styles";
 import SeeMoreButton from "./SeeMoreButton";
 
 const ZNANYLEKARZ_LINK =
