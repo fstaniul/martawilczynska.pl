@@ -4,7 +4,7 @@ import { FormattedMessage } from "react-intl";
 import FormattedStringMessage from "../../../../util/FormattedStringMessage";
 import { SectionHeading, SubHeading } from "../../../../components/Headings";
 import { TextAnchorTag } from "../../../../components/Links/TextLink";
-import { media } from "../../../../util/styles";
+import { media, query } from "../../../../util/styles";
 import useWindowWidth from "../../../../util/hooks/useWindowWidth";
 import SeeMoreButton from "./SeeMoreButton";
 
@@ -15,8 +15,12 @@ const HeadingsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 3rem 5rem;
+
+  ${query.md`
+    justify-content: space-between;
+  `}
 `;
 
 const Heading = () => {
