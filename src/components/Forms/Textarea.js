@@ -2,25 +2,26 @@ import styled from "styled-components";
 import { colors } from "../../util/styles";
 import FormElement from "./FormElement";
 
-const StyledInput = styled.input`
-  height: 60px;
-  line-height: 60px;
-  padding: 2rem 0;
-  border: none;
-  border-bottom: 2px solid ${colors.gray};
-  padding: 0 0 0 2rem;
-  margin: 0;
-  color: ${colors.black};
+const StyledTextarea = styled.textarea`
   outline: none;
   width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid ${colors.gray};
+  color: ${colors.black};
+  padding: 2rem;
+  margin: 0;
+  resize: vertical;
+  height: auto;
 
   &.error {
-    border-color: ${colors.red};
     color: ${colors.red};
+    border-color: ${colors.red};
   }
 
   &:focus {
-    border-color: ${colors.blue};
+    border: none;
+    border-bottom: 1px solid ${colors.blue};
   }
 `;
 
@@ -38,21 +39,25 @@ const StyledLabel = styled.label`
   margin: 0;
   cursor: text;
 
-  ${StyledInput}.error + & {
+  ${StyledTextarea}.error + & {
     color: ${colors.red};
   }
 
-  ${StyledInput}:focus + &,
+  ${StyledTextarea}:focus + &,
   &.focused {
     font-size: 1.2rem;
     top: -1.5rem;
   }
 
-  ${StyledInput}:focus + & {
+  ${StyledTextarea}:focus + & {
     color: ${colors.blue};
   }
 `;
 
-const Input = FormElement(StyledInput, StyledLabel);
+const Textarea = FormElement(StyledTextarea, StyledLabel);
 
-export default Input;
+Textarea.defaultProps = {
+  rows: 6
+};
+
+export default Textarea;

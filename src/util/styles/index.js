@@ -6,7 +6,8 @@ export const colors = {
   black: "#212121",
   white: "#FFFFFF",
   gray: "#707070",
-  silver: "#EEEEEE"
+  silver: "#EEEEEE",
+  red: "#E30000"
 };
 
 export const media = {

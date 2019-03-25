@@ -20,5 +20,13 @@
   "home.cta.button": "UMÓW WIZYTĘ",
   "home.testimonials.header": "OPINIE PACJENTÓW",
   "home.testimonials.subheader": "opinie pacjentów wystaione na portalu {znanylekarz}.",
-  "home.testimonials.read-more-button": "ZOBACZ WIĘCEJ"
+  "home.testimonials.read-more-button": "ZOBACZ WIĘCEJ",
+  "home.contact-form.name": "Imię i Nazwisko",
+  "home.contact-form.email": "E-mail adres",
+  "home.contact-form.topic": "Temat",
+  "home.contact-form.message": "Wiadomość",
+  "home.contact-form.error.name": "Miło jest wiedzieć z kim się rozmawia, proszę przedstaw się!",
+  "home.contact-form.error.email": "Podaj prawdziwy adres e-mail inaczej nie będziesz mógł/mogła otrzymać odpowiedzi!",
+  "home.contact-form.error.topic": "Podaj temat wiadomości :)",
+  "home.contact-form.error.message": "Jaki jest powód wysłania pustej wiadomości? Nam też jest niestety nieznany."
 }

@@ -7,7 +7,8 @@ import {
   faStar,
   faUserInjured,
   faBookOpen,
-  faProcedures
+  faProcedures,
+  faExclamationTriangle
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -18,5 +19,6 @@ library.add(
   faStar,
   faUserInjured,
   faBookOpen,
-  faProcedures
+  faProcedures,
+  faExclamationTriangle
 );

@@ -24,6 +24,10 @@
 - Media Queries
 */
 
+* {
+  box-sizing: border-box;
+}
+
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
