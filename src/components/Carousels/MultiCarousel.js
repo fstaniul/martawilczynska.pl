@@ -41,7 +41,11 @@ const MultiCarousel = ({ data, children, elementWidth }) => {
   const [current, setCurrent] = useState(0);
   const [next, setNext] = useState(0);
   const windowWidth = useWindowWidth();
-  const elementsToDisplay = Math.floor(windowWidth / elementWidth);
+
+  // calculate how many elements to display, not less then one
+  let elementsToDisplay = Math.floor(windowWidth / elementWidth);
+  elementsToDisplay = elementsToDisplay < 1 ? 1 : elementsToDisplay;
+
   const displayData = data.slice(
     elementsToDisplay * current,
     elementsToDisplay * (current + 1)

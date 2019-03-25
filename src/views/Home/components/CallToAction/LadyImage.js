@@ -7,6 +7,10 @@ const LadyImage = styled(ClosedEyesLadyImage)`
   width: 100%;
   z-index: 1;
 
+  ${query.md`
+    width: 80%;
+  `}
+
   ${query.lg`
     position: absolute;
     bottom: 0;

@@ -1,7 +1,9 @@
 import React from "react";
-import Heading from "../components/Testimonials/Heading";
 import MultiCarousel from "../../../components/Carousels/MultiCarousel";
+import Flex from "../../../components/Containers/Flex";
 import Testimony from "../../../components/Testiomony";
+import Heading from "../components/Testimonials/Heading";
+import SeeMoreButton from "../components/Testimonials/SeeMoreButton";
 
 const MOCK_DATA = [
   {
@@ -76,6 +78,9 @@ const Testimonials = () => {
       <MultiCarousel data={MOCK_DATA} elementWidth={500}>
         {props => <Testimony {...props} />}
       </MultiCarousel>
+      <Flex align="center" justify="center">
+        <SeeMoreButton hide="md" />
+      </Flex>
     </div>
   );
 };

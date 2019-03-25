@@ -19,6 +19,7 @@ const Button = styled(LocaleLink)`
   line-height: 50px;
   height: 50px;
   width: 400px;
+  max-width: 100%;
   text-align: center;
   box-sizing: border-box;
 

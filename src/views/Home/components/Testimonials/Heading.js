@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { FormattedMessage } from "react-intl";
-import { GradientButton } from "../../../../components/Buttons";
 import FormattedStringMessage from "../../../../util/FormattedStringMessage";
 import { SectionHeading, SubHeading } from "../../../../components/Headings";
 import { TextAnchorTag } from "../../../../components/Links/TextLink";
-import { LocaleLink } from "../../../../util/locale";
+import { media } from "../../../../util/styles";
+import useWindowWidth from "../../../../util/hooks/useWindowWidth";
+import SeeMoreButton from "./SeeMoreButton";
 
 const ZNANYLEKARZ_LINK =
   "https://www.znanylekarz.pl/marta-wilczynska-staniul/chirurg-plastyczny-chirurg/wroclaw#tab=profile-reviews";
@@ -36,11 +37,7 @@ const Heading = () => {
           />
         </SubHeading>
       </SectionHeading>
-      <div>
-        <GradientButton as={LocaleLink} to="testimonials">
-          <FormattedMessage id="home.testimonials.read-more-button" />
-        </GradientButton>
-      </div>
+      <SeeMoreButton show="md" />
     </HeadingsWrapper>
   );
 };
