@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Flex = styled.div`
   display: flex;
-  direction: ${({ direction }) => direction};
+  flex-direction: ${({ direction }) => direction};
   justify-content: ${({ justify }) => justify};
   align-items: ${({ align }) => align};
 `;

@@ -1,9 +1,13 @@
 import React from "react";
-import Container, { TextWrapper } from "../components/CallToAction/Container";
+import Container, {
+  TextWrapper,
+  ImageWrapper
+} from "../components/CallToAction/Container";
 import Title from "../components/CallToAction/Title";
 import Attributes from "./Attributes";
 import CTAButton from "../components/CallToAction/CTAButton";
 import LadyImage from "../components/CallToAction/LadyImage";
+import Flex from "../../../components/Containers/Flex";
 
 const CallToAction = () => {
   return (
@@ -13,7 +17,9 @@ const CallToAction = () => {
         <Attributes />
         <CTAButton />
       </TextWrapper>
-      <LadyImage />
+      <ImageWrapper>
+        <LadyImage />
+      </ImageWrapper>
     </Container>
   );
 };

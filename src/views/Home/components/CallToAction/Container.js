@@ -9,18 +9,38 @@ export default styled(ClinicBackground)`
   max-width: 100%;
   border-bottom: 10px solid ${colors.blue};
   box-sizing: border-box;
-  padding: 100px 20px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
   ${query.md`
-    padding: 100px 50px 0;
-  `}
-
-  ${query.lg`
-    padding: 200px 0 0 150px;
-    min-height: 100vh;
+    flex-wrap: nowrap;
+    height: 100vh;
   `}
 `;
 
 export const TextWrapper = styled.div`
   z-index: 100;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 15px 0 15px;
+
+  ${query.md`
+    padding: 100px 15px 0 15px;
+  `}
+`;
+
+export const ImageWrapper = styled.div`
+  z-index: 1;
+  flex: 0 1 100%;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+  ${query.md`
+    flex: 0 1 50%;
+  `}
 `;
