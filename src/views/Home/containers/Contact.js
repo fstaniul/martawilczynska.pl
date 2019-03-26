@@ -19,7 +19,7 @@ const FormContainer = styled(Left)`
   justify-content: center;
 `;
 
-const LadyImageContainter = styled(Left)`
+const LadyImageContainter = styled(Right)`
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -40,7 +40,7 @@ const Contact = () => {
           <div>
             <SectionHeading center color="white">
               <FormattedMessage id="home.contact-form.heading" />
-              <SubHeading color="white">
+              <SubHeading color="silver">
                 <FormattedMessage id="home.contact-form.subheading" />
               </SubHeading>
             </SectionHeading>
