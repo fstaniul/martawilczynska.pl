@@ -21,6 +21,8 @@
   "home.testimonials.header": "OPINIE PACJENTÓW",
   "home.testimonials.subheader": "opinie pacjentów wystaione na portalu {znanylekarz}.",
   "home.testimonials.read-more-button": "ZOBACZ WIĘCEJ",
+  "home.contact-form.heading": "POZOSTAŃ W KONTAKCIE",
+  "home.contact-form.subheading": "Wciąż wątpisz? Zadaj pytanie doktor Marcie!",
   "home.contact-form.label.name": "Imię i Nazwisko",
   "home.contact-form.label.email": "E-mail adres",
   "home.contact-form.label.topic": "Temat",

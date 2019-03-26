@@ -1,13 +1,56 @@
 import React from "react";
+import styled from "styled-components";
 import GradientBackground from "../../../components/Containers/GradientBackground";
 import Separator from "../../../components/Separator";
 import ContactForm from "../../../components/Contact/ContactForm";
+import { SectionHeading, SubHeading } from "../../../components/Headings";
+import SideBySide, {
+  Left,
+  Right
+} from "../../../components/Containers/SideBySide";
+import OpenEyesLadyImage from "../../../components/OpenEyesLadyImage";
+import { FormattedMessage } from "react-intl";
+
+const FormContainer = styled(Left)`
+  padding: 10rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+`;
+
+const LadyImageContainter = styled(Left)`
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+`;
+
+const LadyIamge = styled(OpenEyesLadyImage)`
+  display: block;
+  width: 100%;
+  max-width: 860px;
+`;
 
 const Contact = () => {
   return (
     <GradientBackground>
       <Separator separator="wave" rotate />
-      <ContactForm />
+      <SideBySide>
+        <FormContainer>
+          <div>
+            <SectionHeading center color="white">
+              <FormattedMessage id="home.contact-form.heading" />
+              <SubHeading color="white">
+                <FormattedMessage id="home.contact-form.subheading" />
+              </SubHeading>
+            </SectionHeading>
+            <ContactForm />
+          </div>
+        </FormContainer>
+        <LadyImageContainter>
+          <LadyIamge />
+        </LadyImageContainter>
+      </SideBySide>
     </GradientBackground>
   );
 };

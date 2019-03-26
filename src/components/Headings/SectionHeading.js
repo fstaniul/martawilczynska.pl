@@ -8,7 +8,7 @@ const SectionHeading = styled.h2`
   text-align: center;
 
   ${query.md`
-    text-align: left;
+    text-align: ${({ center }) => (center ? "center" : "left")};
   `}
 `;
 
