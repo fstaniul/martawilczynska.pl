@@ -7,11 +7,11 @@ const LadyImage = styled(ClosedEyesLadyImage)`
   width: auto;
 
   ${query.sm`
-    max-width: 500px;
   `}
 
   ${query.md`
-    max-width: initial;
+    width: 100%;
+    max-width: 844px;
   `}
 `;
 

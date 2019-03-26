@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { FormattedMessage } from "react-intl";
 import { Form, Input, Textarea, Submit } from "../Forms";
+import Flex from "../Containers/Flex";
 import { isRequired, isEmail } from "../../util/validation";
 import Axios from "axios";
 
@@ -19,6 +20,14 @@ const FormTextarea = props => (
   <FormInputContainer>
     <Textarea {...props} rows={6} />
   </FormInputContainer>
+);
+
+const FormSubmit = () => (
+  <Flex justify="center" align="center">
+    <Submit>
+      <FormattedMessage id="home.contact-form.submit" />
+    </Submit>
+  </Flex>
 );
 
 export default class ContactForm extends Component {
@@ -61,13 +70,7 @@ export default class ContactForm extends Component {
       <Form
         fields={this.fields}
         onSubmit={this.onSubmit}
-        submit={
-          <FormInputContainer>
-            <Submit>
-              <FormattedMessage id="home.contact-form.submit" />
-            </Submit>
-          </FormInputContainer>
-        }
+        submit={<FormSubmit />}
       />
     );
   }
