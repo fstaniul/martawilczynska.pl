@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../util/styles";
-import FormElement from "./FormElement";
+import Element from "./Element";
 
 const StyledInput = styled.input`
   height: 60px;
@@ -53,6 +53,6 @@ const StyledLabel = styled.label`
   }
 `;
 
-const Input = FormElement(StyledInput, StyledLabel);
+const Input = Element(StyledInput, StyledLabel);
 
 export default Input;

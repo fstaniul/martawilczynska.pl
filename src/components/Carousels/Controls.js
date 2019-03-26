@@ -3,7 +3,12 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { colors } from "../../util/styles";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
 
 const Line = styled.span`
   background: ${({ isSelected }) => (isSelected ? colors.gray : "#9A9A9A")};
@@ -16,6 +21,7 @@ const Line = styled.span`
 `;
 
 const Control = styled.button`
+  flex: 1 auto;
   background: transparent;
   border: none;
   outline: none;

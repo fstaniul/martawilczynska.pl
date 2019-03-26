@@ -19,7 +19,7 @@ const ErrorIcon = styled(FontAwesomeIcon).attrs({
   padding-right: 0.5rem;
 `;
 
-const FormError = ({ error }) => {
+const ElementError = ({ error }) => {
   if (!error) return null;
 
   return (
@@ -30,4 +30,4 @@ const FormError = ({ error }) => {
   );
 };
 
-export default FormError;
+export default ElementError;

@@ -1,7 +1,7 @@
 import React from "react";
 import GradientBackground from "../../../components/Containers/GradientBackground";
 import Separator from "../../../components/Separator";
-import ContactForm from "./ContactForm";
+import ContactForm from "../../../components/Contact/ContactForm";
 
 const Contact = () => {
   return (

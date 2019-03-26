@@ -1,5 +1,5 @@
-const isRequired = input => {
-  return input && typeof input === "string" && input !== "" ? true : false;
+const isRequired = msg => input => {
+  return input && typeof input === "string" && input !== "" ? null : msg;
 };
 
 export default isRequired;

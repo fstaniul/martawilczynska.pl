@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../util/styles";
-import FormElement from "./FormElement";
+import Element from "./Element";
 
 const StyledTextarea = styled.textarea`
   outline: none;
@@ -54,7 +54,7 @@ const StyledLabel = styled.label`
   }
 `;
 
-const Textarea = FormElement(StyledTextarea, StyledLabel);
+const Textarea = Element(StyledTextarea, StyledLabel);
 
 Textarea.defaultProps = {
   rows: 6
