@@ -4,7 +4,7 @@ import { injectIntl } from "react-intl";
 import { NavLink } from "react-router-dom";
 import { Motion, spring, presets } from "react-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { colors, query } from "../../../util/styles";
+import { colors } from "../../../util/styles";
 import { useLocale, localizePath } from "../../../util/locale";
 import { useNavState } from "../useNavState";
 import IconButton from "../../../components/IconButton";

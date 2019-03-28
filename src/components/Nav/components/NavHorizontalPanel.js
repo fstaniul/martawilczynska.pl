@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import useNavRoutes from "../useNavRoutes";

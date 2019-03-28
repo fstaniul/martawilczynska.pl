@@ -2,9 +2,7 @@ import React, { useState, useRef, useLayoutEffect } from "react";
 import { NavContext } from "./NavContext";
 import NavOpenButton from "./components/NavOpenButton";
 import NavPanel from "./components/NavPanel";
-import NavHorizontalPanel, {
-  HorizontalNavContainer
-} from "./components/NavHorizontalPanel";
+import NavHorizontalPanel from "./components/NavHorizontalPanel";
 import useWindowWidth from "../../util/hooks/useWindowWidth";
 import useScrollValue from "../../util/hooks/useScrollValue";
 import NavWrapper from "./components/NavWrapper";
