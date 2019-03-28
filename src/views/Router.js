@@ -4,7 +4,7 @@ import { useLocale, localizePath } from "../util/locale";
 import Home from "./Home";
 import Contact from "./Contact";
 import NotFound404 from "./NotFound404";
-import Nav from "../util/Nav";
+import Nav from "../components/Nav";
 
 const Router = () => {
   const [locale] = useLocale();

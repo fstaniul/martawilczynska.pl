@@ -5,7 +5,9 @@ import NavPanel from "./components/NavPanel";
 import NavHorizontalPanel, {
   HorizontalNavContainer
 } from "./components/NavHorizontalPanel";
-import useWindowWidth from "../hooks/useWindowWidth";
+import useWindowWidth from "../../util/hooks/useWindowWidth";
+import useScrollValue from "../../util/hooks/useScrollValue";
+import NavWrapper from "./components/NavWrapper";
 
 export const NavContextConsumer = NavContext.Consumer;
 
@@ -14,6 +16,7 @@ const Nav = () => {
   const [horizontal, setHorizontal] = useState(true);
   const windowWidth = useWindowWidth();
   const horizontalNavRef = useRef(null);
+  const scroll = useScrollValue();
 
   useLayoutEffect(() => {
     setHorizontal(
@@ -26,14 +29,17 @@ const Nav = () => {
   return (
     <NavContext.Provider value={{ setOpen, open }}>
       <>
-        <HorizontalNavContainer
+        <NavWrapper
+          scrolled={scroll > 0}
           style={{ transform: `translateY(${horizontal ? "0%" : "-100%"})` }}
         >
           <NavHorizontalPanel wrapperRef={horizontalNavRef} />
-        </HorizontalNavContainer>
+        </NavWrapper>
         {!horizontal && (
           <>
-            <NavOpenButton />
+            <NavWrapper scrolled={scroll > 0} justify="flex-end" padding={3}>
+              <NavOpenButton />
+            </NavWrapper>
             <NavPanel />
           </>
         )}

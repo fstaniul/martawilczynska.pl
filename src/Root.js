@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import Router from "./views/Router";
 import { Localization } from "./util/locale";
 import { GlobalStyles } from "./util/styles";
-import { BackendService } from "./util/BackendService";
+import { BackendService } from "./components/BackendService";
 
 const Root = () => {
   return (

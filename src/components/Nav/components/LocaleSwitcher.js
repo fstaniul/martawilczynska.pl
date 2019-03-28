@@ -3,8 +3,8 @@ import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import PL_LOCALE_FLAG from "../../../assets/img/locale/pl.png";
 import EN_LOCALE_FLAG from "../../../assets/img/locale/en.png";
-import { useLocale, switchLocalePath } from "../../locale";
-import IconButton from "../../../components/IconButton";
+import { useLocale, switchLocalePath } from "../../../util/locale";
+import IconButton from "../../IconButton";
 
 const LOCALES = [
   {

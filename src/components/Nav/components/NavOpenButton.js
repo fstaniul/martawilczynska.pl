@@ -1,16 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
-import IconButton from "../../../components/IconButton";
+import IconButton from "../../IconButton";
 import { useNavState } from "../useNavState";
-import { colors } from "../../styles";
+import { colors } from "../../../util/styles";
 
 const StyledButton = styled(IconButton)`
-  z-index: 1000000;
-  position: absolute;
   display: block;
-  top: 30px;
-  right: 30px;
   padding: 0;
   margin: 0;
 

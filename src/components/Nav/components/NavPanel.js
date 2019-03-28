@@ -4,8 +4,8 @@ import { injectIntl } from "react-intl";
 import { NavLink } from "react-router-dom";
 import { Motion, spring, presets } from "react-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { colors, query } from "../../styles";
-import { useLocale, localizePath } from "../../locale";
+import { colors, query } from "../../../util/styles";
+import { useLocale, localizePath } from "../../../util/locale";
 import { useNavState } from "../useNavState";
 import IconButton from "../../../components/IconButton";
 import LocaleSwitcher from "./LocaleSwitcher";
@@ -23,9 +23,9 @@ const Wrapper = styled.div`
   align-items: stretch;
   justify-content: center;
 
-  ${query.md`
+  @media screen and (min-width: 400px) {
     width: 400px;
-  `}
+  }
 `;
 
 const StyledLink = styled(NavLink)`

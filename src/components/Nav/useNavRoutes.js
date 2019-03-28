@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useLocale, localizePath } from "../locale";
+import { useLocale, localizePath } from "../../util/locale";
 
 const useNavRoutes = () => {
   const [locale] = useLocale();
