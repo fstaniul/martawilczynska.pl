@@ -9,6 +9,10 @@ const NavWrapper = styled.div`
   justify-content: ${({ justify }) => justify};
   transition: all 150ms linear;
   padding: 0 ${({ padding }) => padding}rem;
+  background: ${({ withBackground }) =>
+    withBackground
+      ? `linear-gradient(135deg, ${colors.blue}, ${colors.green})`
+      : "transparent"};
 
   position: fixed;
   top: 0;
@@ -21,7 +25,10 @@ const NavWrapper = styled.div`
   ${({ scrolled }) =>
     scrolled &&
     css`
-      background: ${colors.blue};
+      background: ${({ withBackground }) =>
+        withBackground
+          ? `linear-gradient(135deg, ${colors.blue}, ${colors.green})`
+          : colors.blue};
       height: 5rem;
     `}
 `;
@@ -29,13 +36,15 @@ const NavWrapper = styled.div`
 NavWrapper.propTypes = {
   scrolled: PropTypes.bool,
   justify: PropTypes.string,
-  padding: PropTypes.number
+  padding: PropTypes.number,
+  withBackground: PropTypes.bool
 };
 
 NavWrapper.defaultProps = {
   scrolled: false,
   justify: "center",
-  padding: 0
+  padding: 0,
+  withBackground: false
 };
 
 export default NavWrapper;

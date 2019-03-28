@@ -9,8 +9,9 @@ import useIsScrolled from "../../util/hooks/useIsScrolled";
 
 export const NavContextConsumer = NavContext.Consumer;
 
-const Nav = () => {
+const Nav = ({ children }) => {
   const [open, setOpen] = useState(false);
+  const [withBackground, setWithBackground] = useState(false);
   const [horizontal, setHorizontal] = useState(true);
   const windowWidth = useWindowWidth();
   const horizontalNavRef = useRef(null);
@@ -25,9 +26,10 @@ const Nav = () => {
   }, [windowWidth, setHorizontal, horizontalNavRef]);
 
   return (
-    <NavContext.Provider value={{ setOpen, open }}>
+    <NavContext.Provider value={{ setOpen, open, setWithBackground }}>
       <>
         <NavWrapper
+          withBackground={withBackground}
           scrolled={scrolled}
           style={{ transform: `translateY(${horizontal ? "0%" : "-100%"})` }}
         >
@@ -35,12 +37,18 @@ const Nav = () => {
         </NavWrapper>
         {!horizontal && (
           <>
-            <NavWrapper scrolled={scrolled} justify="flex-end" padding={3}>
+            <NavWrapper
+              withBackground={withBackground}
+              scrolled={scrolled}
+              justify="flex-end"
+              padding={3}
+            >
               <NavOpenButton />
             </NavWrapper>
             <NavPanel />
           </>
         )}
+        {children}
       </>
     </NavContext.Provider>
   );
