@@ -41,7 +41,7 @@ export default function NavHorizontalPanel({ wrapperRef }) {
   return (
     <Wrapper ref={wrapperRef} scrolled={scroll > 0}>
       {Object.keys(routes).map((route, i) => (
-        <NavItem key={route} to={routes[route]} exact={route === "/"}>
+        <NavItem key={route} to={routes[route]} exact={route === "home"}>
           <FormattedMessage id={`nav.${route}`} />
         </NavItem>
       ))}
