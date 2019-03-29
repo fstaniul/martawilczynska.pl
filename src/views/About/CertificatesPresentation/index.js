@@ -13,7 +13,7 @@ const CertificatesContext = createContext();
 
 const Container = styled.div`
   max-width: 1200px;
-  padding: 0 1.5rem 8rem;
+  padding: 5rem 1.5rem;
   margin: 0 auto;
 `;
 
