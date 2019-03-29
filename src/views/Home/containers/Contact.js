@@ -4,15 +4,12 @@ import GradientBackground from "../../../components/Containers/GradientBackgroun
 import Separator from "../../../components/Separator";
 import ContactForm from "../../../components/Contact/ContactForm";
 import { SectionHeading, SubHeading } from "../../../components/Headings";
-import SideBySide, {
-  Left,
-  Right
-} from "../../../components/Containers/SideBySide";
+import SideBySide, { Left, Right } from "../../../components/Containers/SideBySide";
 import OpenEyesLadyImage from "../../../components/OpenEyesLadyImage";
 import { FormattedMessage } from "react-intl";
 
 const FormContainer = styled(Left)`
-  padding: 10rem 5rem;
+  padding: 10rem 5rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;

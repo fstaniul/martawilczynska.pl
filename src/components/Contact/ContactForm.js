@@ -39,10 +39,7 @@ export default class ContactForm extends Component {
         component: FormInput
       },
       email: {
-        validator: [
-          isRequired("home.contact-form.error.email"),
-          isEmail("home.contact-form.error.email")
-        ],
+        validator: [isRequired("home.contact-form.error.email"), isEmail("home.contact-form.error.email")],
         component: FormInput
       },
       topic: {
@@ -50,7 +47,7 @@ export default class ContactForm extends Component {
         component: FormInput
       },
       message: {
-        validatior: isRequired("home.contact-form.error.message"),
+        validator: isRequired("home.contact-form.error.message"),
         component: FormTextarea
       }
     };
@@ -66,12 +63,6 @@ export default class ContactForm extends Component {
   onSubmit = data => Axios.post("/api/contact", data);
 
   render() {
-    return (
-      <Form
-        fields={this.fields}
-        onSubmit={this.onSubmit}
-        submit={<FormSubmit />}
-      />
-    );
+    return <Form fields={this.fields} onSubmit={this.onSubmit} submit={<FormSubmit />} />;
   }
 }

@@ -26,14 +26,10 @@ const BUMP = (
   </svg>
 );
 
-const SeparatorWrapper = styled.div`
-  ${({ rotate }) => css`
-    transform: translateY(${rotate ? -2 : 2}px) rotate(${rotate ? 180 : 0}deg);
-  `}
-`;
-
 const Separator = ({ separator, rotate }) => {
-  return <SeparatorWrapper rotate={rotate}>{separator === "bump" ? BUMP : WAVE}</SeparatorWrapper>;
+  return (
+    <div style={{ transform: `translateY(${rotate ? -2 : 2}px) rotate(${rotate ? 180 : 0}deg)` }}>{separator === "bump" ? BUMP : WAVE}</div>
+  );
 };
 
 export default Separator;

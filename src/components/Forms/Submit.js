@@ -13,7 +13,6 @@ const StyledButton = styled.button`
 
   &:hover {
     color: ${colors.blue};
-    transform: translateY(-0.3rem);
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   }
 `;
