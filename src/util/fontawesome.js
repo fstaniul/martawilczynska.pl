@@ -9,7 +9,10 @@ import {
   faBookOpen,
   faProcedures,
   faExclamationTriangle,
-  faQuoteRight
+  faQuoteRight,
+  faEye,
+  faChevronLeft,
+  faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -22,5 +25,8 @@ library.add(
   faBookOpen,
   faProcedures,
   faExclamationTriangle,
-  faQuoteRight
+  faQuoteRight,
+  faEye,
+  faChevronLeft,
+  faChevronRight
 );

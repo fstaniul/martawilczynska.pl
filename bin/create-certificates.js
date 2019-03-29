@@ -23,26 +23,24 @@ fs.readdir(certificatesPath, (err, certificateFiles) => {
       .resize(250, 150)
       .toFile(certificateOutputFile, err => {
         if (err) {
-          console.log(
-            "Failed to write",
-            certificateFile,
-            "to",
-            certificateOutputFile
-          );
+          console.log("Failed to write", certificateFile, "to", certificateOutputFile);
           console.log(err);
           console.log();
         } else {
           console.log("Successfully saved", certificateFile);
         }
         certificates.push({
+          date: new Date(certificateFile.replace(".jpg", "")),
           img: makeImgPath(certificateFile),
           thumbnail: makeThumbnailPath(certificateFile)
         });
         i++;
         if (i === certificateFiles.length) {
+          certificates.sort((a, b) => (a.date >= b.date && a.date <= b.date ? 0 : a.date < b.date ? -1 : 1));
+          console.log(certificates.map(c => c.date));
           fs.writeFile(
             path.resolve(__dirname, "../src/assets/certificates.json"),
-            JSON.stringify(certificates),
+            JSON.stringify(certificates.map(({ img, thumbnail }) => ({ img, thumbnail }))),
             err => {
               if (err) console.log("Failed to wrtie certificates.json");
               else console.log("Successfully wrote certificates.json");

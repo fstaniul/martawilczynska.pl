@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const WAVE = (
   <svg
@@ -18,12 +18,7 @@ const WAVE = (
 );
 
 const BUMP = (
-  <svg
-    viewBox="0 0 1088 60"
-    preserveAspectRatio="none"
-    xmlns="http://www.w3.org/2000/svg"
-    display="block"
-  >
+  <svg viewBox="0 0 1088 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" display="block">
     <path
       d="M1087.5 60h-1087.5v-.759c232.821 0 336.464-59.241 543.75-59.241l1.213.001c206.478.23 310.171 59.24 542.537 59.24v.759z"
       fill="#FFFFFF"
@@ -32,15 +27,13 @@ const BUMP = (
 );
 
 const SeparatorWrapper = styled.div`
-  margin-bottom: 5rem;
+  ${({ rotate }) => css`
+    transform: translateY(${rotate ? -2 : 2}px) rotate(${rotate ? 180 : 0}deg);
+  `}
 `;
 
 const Separator = ({ separator, rotate }) => {
-  return (
-    <SeparatorWrapper style={{ transform: `rotate(${rotate ? 180 : 0}deg)` }}>
-      {separator === "bump" ? BUMP : WAVE}
-    </SeparatorWrapper>
-  );
+  return <SeparatorWrapper rotate={rotate}>{separator === "bump" ? BUMP : WAVE}</SeparatorWrapper>;
 };
 
 export default Separator;
