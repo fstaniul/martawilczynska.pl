@@ -9,7 +9,7 @@ import OpenEyesLadyImage from "../../../components/OpenEyesLadyImage";
 import { FormattedMessage } from "react-intl";
 
 const FormContainer = styled(Left)`
-  padding: 10rem 5rem 3rem;
+  padding: 10rem 1.5rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;

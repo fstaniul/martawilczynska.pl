@@ -19,11 +19,11 @@ const ErrorIcon = styled(FontAwesomeIcon).attrs({
   padding-right: 0.5rem;
 `;
 
-const ElementError = ({ error }) => {
+const ElementError = ({ error, onClick }) => {
   if (!error) return null;
 
   return (
-    <ErrorMessage>
+    <ErrorMessage onClick={onClick}>
       <ErrorIcon />
       <FormattedMessage id={error} defaultMessage={error} />
     </ErrorMessage>

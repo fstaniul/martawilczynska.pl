@@ -6,15 +6,7 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const Element = (Element, Label) => ({
-  value,
-  onFocus,
-  onBlur,
-  id,
-  label,
-  error,
-  ...rest
-}) => {
+const Element = (Element, Label) => ({ value, onFocus, onBlur, id, label, error, ...rest }) => {
   const ref = useRef(null);
   const [focused, setFocused] = useState(false);
 
@@ -30,25 +22,13 @@ const Element = (Element, Label) => ({
 
   return (
     <Wrapper>
-      <Element
-        id={id}
-        value={value}
-        onFocus={_onFocus}
-        onBlur={_onBlur}
-        ref={ref}
-        className={error ? "error" : ""}
-        {...rest}
-      />
+      <Element id={id} value={value} onFocus={_onFocus} onBlur={_onBlur} ref={ref} className={error ? "error" : ""} {...rest} />
       {label && (
-        <Label
-          className={value ? "focused" : ""}
-          htmlFor={id}
-          onClick={() => ref.current.focus()}
-        >
+        <Label className={value ? "focused" : ""} htmlFor={id} onClick={() => ref.current.focus()}>
           {label}
         </Label>
       )}
-      <ElementError error={focused ? null : error} />
+      <ElementError error={focused ? null : error} onClick={() => ref.current.focus()} />
     </Wrapper>
   );
 };

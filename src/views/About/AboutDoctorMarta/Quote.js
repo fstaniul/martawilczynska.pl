@@ -16,11 +16,8 @@ const Text = styled.span`
 const Quote = () => {
   return (
     <Wrapper>
-      <Text color="blue">
-        "Give every day the chance to become the most beautiful day of your
-        life."
-      </Text>
-      <Text color="black">&nbsp;- Mark Twain</Text>
+      <Text color="blue">"Give every day the chance to become the most beautiful day of your life."</Text>
+      <Text color="black"> -&nbsp;Mark&nbsp;Twain</Text>
     </Wrapper>
   );
 };

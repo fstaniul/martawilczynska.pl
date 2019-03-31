@@ -7,15 +7,14 @@ import { TextAnchorTag } from "../../../../components/Links/TextLink";
 import { query } from "../../../../util/styles";
 import SeeMoreButton from "./SeeMoreButton";
 
-const ZNANYLEKARZ_LINK =
-  "https://www.znanylekarz.pl/marta-wilczynska-staniul/chirurg-plastyczny-chirurg/wroclaw#tab=profile-reviews";
+const ZNANYLEKARZ_LINK = "https://www.znanylekarz.pl/marta-wilczynska-staniul/chirurg-plastyczny-chirurg/wroclaw#tab=profile-reviews";
 
 const HeadingsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 3rem 5rem;
+  padding: 3rem 1.5rem;
 
   ${query.md`
     justify-content: space-between;
