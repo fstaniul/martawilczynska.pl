@@ -1,0 +1,12 @@
+{
+  "name": "martawilczynska.pl-server",
+  "version": "1.0.0",
+  "description": "Server hosting martawilczynska.pl",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Filip Staniul <filip.staniul@hotmail.com>",
+  "license": "MIT"
+}
