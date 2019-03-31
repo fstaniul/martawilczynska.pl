@@ -7,7 +7,7 @@ import useNavSetBackground from "../../components/Nav/useNavSetBackground";
 import Info from "./Info";
 
 const Container = styled(ClinicBackground)`
-  padding: 20rem 1.5rem 10rem;
+  padding: 10rem 1.5rem 0;
   min-height: 100vh;
 `;
 
@@ -16,6 +16,7 @@ const InfoWrapper = styled.div`
   flex-flow: column nowrap;
   align-items: stretch;
   justify-content: stretch;
+  padding: 10rem 0 10rem 0;
 
   ${query.md`
     flex-flow: row nowrap;

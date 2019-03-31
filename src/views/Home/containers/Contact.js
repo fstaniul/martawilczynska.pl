@@ -4,9 +4,16 @@ import GradientBackground from "../../../components/Containers/GradientBackgroun
 import Separator from "../../../components/Separator";
 import ContactForm from "../../../components/Contact/ContactForm";
 import { SectionHeading, SubHeading } from "../../../components/Headings";
-import SideBySide, { Left, Right } from "../../../components/Containers/SideBySide";
+import SideBySide, {
+  Left,
+  Right
+} from "../../../components/Containers/SideBySide";
 import OpenEyesLadyImage from "../../../components/OpenEyesLadyImage";
 import { FormattedMessage } from "react-intl";
+
+const Container = styled(SideBySide)`
+  padding-top: 4rem;
+`;
 
 const FormContainer = styled(Left)`
   padding: 10rem 1.5rem 3rem;
@@ -32,7 +39,7 @@ const Contact = () => {
   return (
     <GradientBackground>
       <Separator separator="wave" rotate />
-      <SideBySide>
+      <Container>
         <FormContainer>
           <div>
             <SectionHeading center color="white">
@@ -47,7 +54,7 @@ const Contact = () => {
         <LadyImageContainter>
           <LadyIamge />
         </LadyImageContainter>
-      </SideBySide>
+      </Container>
     </GradientBackground>
   );
 };
