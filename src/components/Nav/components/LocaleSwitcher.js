@@ -21,6 +21,9 @@ const LOCALES = [
 
 const ImgButton = styled(IconButton)`
   padding: 0 2px;
+  height: auto;
+  line-height: 1em;
+  margin-bottom: 0;
   img {
     filter: grayscale(${({ active }) => (active ? 0 : 100)}%);
     transition: 100ms filter;
@@ -42,11 +45,7 @@ const LocaleSwitcher = ({ className, history, location }) => {
   return (
     <div className={className}>
       {LOCALES.map((locale, i) => (
-        <ImgButton
-          key={locale.id}
-          onClick={() => switchLocale(locale.id)}
-          active={currentLocale === locale.id}
-        >
+        <ImgButton key={locale.id} onClick={() => switchLocale(locale.id)} active={currentLocale === locale.id}>
           <img src={locale.icon} alt={locale.name} />
         </ImgButton>
       ))}
