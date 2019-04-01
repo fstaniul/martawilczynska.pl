@@ -3,8 +3,12 @@ import styled from "styled-components";
 import { FormattedMessage } from "react-intl";
 import { colors, query } from "../../util/styles";
 import ClinicBackground from "../../components/Containers/ClinicBackground";
+import SideBySide, { Left } from "../../components/Containers/SideBySide";
 import useNavSetBackground from "../../components/Nav/useNavSetBackground";
+import ContactForm from "../../components/Contact/ContactForm";
+import { SideBySideLadyImage } from "../../components/OpenEyesLadyImage";
 import Info from "./Info";
+import { SectionHeading, SubHeading } from "../../components/Headings";
 
 const Container = styled(ClinicBackground)`
   padding: 10rem 1.5rem 0;
@@ -37,6 +41,15 @@ const Separator = styled.div`
   `}
 `;
 
+const FormContainer = styled(SideBySide)``;
+
+const FormWrapper = styled(Left)`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: stretch;
+`;
+
 const Contact = () => {
   const navSetBackground = useNavSetBackground();
   useEffect(() => {
@@ -62,6 +75,18 @@ const Contact = () => {
           position="bottom"
         />
       </InfoWrapper>
+      <FormContainer>
+        <FormWrapper>
+          <SectionHeading color="white" style={{ padding: "0 1rem" }}>
+            <FormattedMessage id="contact.form.header" />
+            <SubHeading color="silver">
+              <FormattedMessage id="contact.form.subheader" />
+            </SubHeading>
+          </SectionHeading>
+          <ContactForm />
+        </FormWrapper>
+        <SideBySideLadyImage />
+      </FormContainer>
     </Container>
   );
 };
