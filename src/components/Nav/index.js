@@ -50,4 +50,6 @@ const Nav = ({ children }) => {
   );
 };
 
+export { default as useNavSetBackground } from "./useNavSetBackground";
+
 export default Nav;
