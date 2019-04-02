@@ -41,13 +41,23 @@ const Separator = styled.div`
   `}
 `;
 
-const FormContainer = styled(SideBySide)``;
+const FormContainer = styled(SideBySide)`
+  padding-top: 10rem;
+`;
 
 const FormWrapper = styled(Left)`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: stretch;
+
+  ${query.lg`
+    padding-left: 5rem;
+  `}
+
+  ${query.xl`
+    padding-left: 10rem;
+  `}
 `;
 
 const Contact = () => {
@@ -68,16 +78,11 @@ const Contact = () => {
           position="top"
         />
         <Separator />
-        <Info
-          name="KCM Clinic"
-          phone="+48 555 333 111"
-          arrowText={<FormattedMessage id="contact.make-an-appointment" />}
-          position="bottom"
-        />
+        <Info name="KCM Clinic" phone="+48 555 333 111" arrowText={<FormattedMessage id="contact.make-an-appointment" />} position="bottom" />
       </InfoWrapper>
       <FormContainer>
         <FormWrapper>
-          <SectionHeading color="white" style={{ padding: "0 1rem" }}>
+          <SectionHeading color="white" style={{ padding: "0 1rem" }} center={true}>
             <FormattedMessage id="contact.form.header" />
             <SubHeading color="silver">
               <FormattedMessage id="contact.form.subheader" />

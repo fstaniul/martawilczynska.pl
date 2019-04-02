@@ -63,6 +63,6 @@ export default class ContactForm extends Component {
   onSubmit = data => Axios.post("/api/contact", data);
 
   render() {
-    return <Form fields={this.fields} onSubmit={this.onSubmit} submit={<FormSubmit />} />;
+    return <Form fields={this.fields} onSubmit={this.onSubmit} submit={<FormSubmit />} className={this.props.className} />;
   }
 }

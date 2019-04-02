@@ -2,7 +2,7 @@ import React, { createContext, useState, useCallback } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormattedMessage } from "react-intl";
-import Modal from "./Modal";
+import Modal from "../../../components/Modal";
 import CERTIFICATES from "../../../assets/certificates.json";
 import { colors } from "../../../util/styles";
 import { SectionHeading, SubHeading } from "../../../components/Headings";
