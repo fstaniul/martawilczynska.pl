@@ -11,7 +11,7 @@ const useIsScrolled = () => {
       if (isScrolled && !scrolled) setScrolled(true);
       else if (scrolled && !isScrolled) setScrolled(false);
     };
-    window.addEventListener("scroll", listener);
+    window.addEventListener("scroll", listener, { passive: true });
     return () => window.removeEventListener("scroll", listener);
   }, [setScrolled, getScrollValue, scrolled]);
 
