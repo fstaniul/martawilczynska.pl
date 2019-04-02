@@ -73,12 +73,8 @@ const ScrollDownIconContainer = styled.div`
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 1;
+  opacity: ${({ hide }) => (hide ? 0 : 1)};
   transition: opacity 150ms ease;
-
-  &.hide {
-    opacity: 0;
-  }
 `;
 
 const Contact = () => {
@@ -103,7 +99,7 @@ const Contact = () => {
           <Separator />
           <Info name="KCM Clinic" phone="+48 555 333 111" arrowText={<FormattedMessage id="contact.make-an-appointment" />} position="bottom" />
         </InfoWrapper>
-        <ScrollDownIconContainer className={hideScrollIcon ? "hide" : ""}>
+        <ScrollDownIconContainer hide={hideScrollIcon}>
           <ScrollDownIcon />
         </ScrollDownIconContainer>
       </InfoContainer>
