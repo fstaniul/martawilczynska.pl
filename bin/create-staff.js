@@ -1,6 +1,7 @@
 const sharp = require("sharp");
 const fs = require("fs");
 const path = require("path");
+const showdown = new (require("showdown")).Converter();
 
 const photosFolder = path.resolve(__dirname, "../public/staff-galery/image");
 const outputFolder = path.resolve(photosFolder, "../thumbnails");
@@ -25,4 +26,16 @@ fs.readdirSync(photosFolder).forEach((photo, index, photos) => {
         }
       }
     });
+});
+
+const staffContentFolder = path.resolve(__dirname, "../data/staff");
+const localeFilesFolder = path.resolve(__dirname, "../src/assets/locale");
+
+fs.readdirSync(staffContentFolder).forEach((staffContent, index, files) => {
+  const locale = staffContent.replace(".md", "");
+  const outputFile = path.join(localeFilesFolder, locale + ".json");
+  const mdContent = fs.readFileSync(path.join(staffContentFolder, staffContent), { encoding: "utf8" });
+  const localeFile = JSON.parse(fs.readFileSync(outputFile, { encoding: "utf8" }));
+  localeFile["staff.content"] = showdown.makeHtml(mdContent);
+  fs.writeFileSync(outputFile, JSON.stringify(localeFile, null, 2), { encoding: "utf8" });
 });

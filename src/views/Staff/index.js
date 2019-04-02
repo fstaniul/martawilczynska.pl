@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { ClinicBackground } from "../../components/Containers";
 import { useNavSetBackground } from "../../components/Nav";
-import { colors } from "../../util/styles";
+import { colors, query } from "../../util/styles";
 import { SectionHeading, SubHeading } from "../../components/Headings";
 import { FormattedMessage, injectIntl } from "react-intl";
 import Galery from "../../components/Galery";
@@ -21,14 +21,37 @@ const Container = styled.div`
 `;
 
 const Text = styled.div`
+  flex: 1 auto;
   padding: 2rem;
   background: ${colors.white};
   color: ${colors.black};
+
+  p:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+
+  margin-bottom: 2rem;
 `;
 
-const ContentContainer = styled.div``;
+const ContentContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;
 
-const GaleryContainer = styled.div``;
+  ${query.lg`
+    flex-wrap: nowrap;
+  `}
+`;
+
+const GaleryContainer = styled.div`
+  flex: 0 0 400px;
+
+  ${query.lg`
+    padding-right: 3rem;
+  `}
+`;
 
 const Staff = ({ intl: { formatMessage } }) => {
   const setNavBackground = useNavSetBackground();

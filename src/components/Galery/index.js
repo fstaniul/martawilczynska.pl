@@ -6,20 +6,57 @@ import { TransitionMotion, spring } from "react-motion";
 import { colors } from "../../util/styles";
 import Modal from "../Modal";
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-right: 1rem;
+`;
 
 const ImageContainer = styled.div`
   position: relative;
-  height: 400px;
-  width: 400px;
+  height: 250px;
+  width: 250px;
   margin-bottom: 2rem;
+
+  @media screen and (min-width: 300px) {
+    height: 300px;
+    width: 300px;
+  }
+
+  @media screen and (min-width: 350px) {
+    height: 350px;
+    width: 350px;
+  }
+
+  @media screen and (min-width: 400px) {
+    height: 400px;
+    width: 400px;
+  }
 `;
 
 const Image = styled.img`
   position: absolute;
-  width: 400px;
-  height: 400px;
+  display: block;
+  width: 250px;
+  height: 250px;
   cursor: pointer;
+
+  @media screen and (min-width: 300px) {
+    height: 300px;
+    width: 300px;
+  }
+
+  @media screen and (min-width: 350px) {
+    height: 350px;
+    width: 350px;
+  }
+
+  @media screen and (min-width: 400px) {
+    height: 400px;
+    width: 400px;
+  }
 `;
 
 function calculateNextIndex(index, length) {
@@ -135,8 +172,6 @@ const Galery = ({ photos }) => {
 
   const willEnter = useCallback(
     styleThatEntered => {
-      console.log(photoData);
-      console.log(styleThatEntered);
       const isLast = photoData[photoData.length - 1].key === +styleThatEntered.key;
       if (!isLast)
         return {
@@ -185,7 +220,7 @@ const Galery = ({ photos }) => {
       <Controls next={next} prev={prev} />
       {isModalShown && (
         <Modal prev={prev} next={next} close={closeModal}>
-          <img src={photoData[photoData.length - 1].image} alt="" />
+          <img src={photoData[photoData.length - 1].image} alt="" style={{ maxWidth: "100%" }} />
         </Modal>
       )}
     </Container>

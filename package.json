@@ -25,7 +25,7 @@
     "now-build": "react-scripts build",
     "cert": "node ./bin/create-certificates.js",
     "treat": "node ./bin/create-treatments.js",
-    "staff": "node ./bin/create-staff-photo-galery.js",
+    "staff": "node ./bin/create-staff.js",
     "scripts": "npm run cert && npm run treat && npm run staff"
   },
   "eslintConfig": {
