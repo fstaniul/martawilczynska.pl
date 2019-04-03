@@ -28,6 +28,7 @@ const InfoWrapper = styled.div`
   align-items: stretch;
   justify-content: stretch;
   padding: 10rem 0 10rem 0;
+  width: 100%;
 
   ${query.md`
     flex-flow: row nowrap;

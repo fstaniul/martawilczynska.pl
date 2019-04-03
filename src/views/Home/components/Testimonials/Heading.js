@@ -18,6 +18,7 @@ const HeadingsWrapper = styled.div`
 
   ${query.md`
     justify-content: space-between;
+    padding: 3rem 5rem;
   `}
 `;
 
