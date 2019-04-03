@@ -8,6 +8,7 @@ import Contact from "./Contact";
 import NotFound404 from "./NotFound404";
 import Treatments from "./Treatments";
 import Staff from "./Staff";
+import Testimonials from "./Testimonials";
 
 const Router = () => {
   const [locale] = useLocale();
@@ -19,6 +20,7 @@ const Router = () => {
           <Route path="/" exact component={Home} />
           <Route path={localizePath(locale, "about")} component={About} />
           <Route path={localizePath(locale, "treatments")} component={Treatments} />
+          <Route path={localizePath(locale, "testimonials")} component={Testimonials} />
           <Route path={localizePath(locale, "staff")} component={Staff} />
           <Route path={localizePath(locale, "contact")} component={Contact} />
           <Route component={NotFound404} />
