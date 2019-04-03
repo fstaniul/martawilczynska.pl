@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { FormattedMessage } from "react-intl";
 import { TransitionMotion, spring } from "react-motion";
 import useNavSetBackground from "../../components/Nav/useNavSetBackground";

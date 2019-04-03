@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "Filip Staniul <filip.staniul@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "puppeteer": "^1.14.0"
+  }
 }
