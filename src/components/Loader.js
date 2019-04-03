@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import PropTypes from "prop-types";
 import { colors } from "../util/styles";
 
 const AnimationFirst = keyframes`
@@ -42,7 +43,7 @@ const StyledLoader = styled.div`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background: ${colors.blue};
+    background: ${({ color }) => color};
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
 
@@ -67,15 +68,23 @@ const StyledLoader = styled.div`
   }
 `;
 
-const Loader = () => {
+const Loader = ({ color }) => {
   return (
-    <StyledLoader>
+    <StyledLoader color={color}>
       <div />
       <div />
       <div />
       <div />
     </StyledLoader>
   );
+};
+
+Loader.propTypes = {
+  color: PropTypes.string
+};
+
+Loader.defaultProps = {
+  color: colors.blue
 };
 
 export default Loader;

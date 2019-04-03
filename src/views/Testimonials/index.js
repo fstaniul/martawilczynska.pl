@@ -7,6 +7,7 @@ import Testimony from "../../components/Testiomony";
 import { SectionHeading, SubHeading } from "../../components/Headings";
 import { useWindowWidth } from "../../util/hooks";
 import { Container, Row, Element, Wrapper, LoadMoreButton } from "./styled";
+import { colors } from "../../util/styles";
 
 const MOCK_DATA = [
   {
@@ -95,7 +96,7 @@ const Testimonials = () => {
   const minRowWidth = 400; // the minimum width of a row (used for calcuating how many rows we display)
   const maxContianerWidth = 1200; // maximum width of a contianer
 
-  const rowsToDisplay = Math.floor(Math.min(maxContianerWidth, windowWidth) / minRowWidth);
+  const rowsToDisplay = Math.max(Math.floor(Math.min(maxContianerWidth, windowWidth) / minRowWidth), 1);
   const indexes = [];
   for (let i = 0; i < rowsToDisplay; ++i) indexes.push(i);
 
@@ -159,7 +160,7 @@ const Testimonials = () => {
         )}
       </TransitionMotion>
       {loading ? (
-        <Loader />
+        <Loader color={testimonials.length === 0 ? colors.white : colors.blue} />
       ) : (
         <LoadMoreButton onClick={load}>
           <FormattedMessage id="testimonials.loadmore" />

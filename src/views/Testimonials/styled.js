@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   background-position: top center;
   padding-top: 10rem;
   padding-bottom: 2rem;
+  min-height: 600px;
 
   ${query.md`
     padding-top: 15rem;
