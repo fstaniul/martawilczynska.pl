@@ -36,12 +36,19 @@ const ImageContainer = styled.div`
   }
 `;
 
-const Image = styled.img`
+const Image = styled.div`
   position: absolute;
   display: block;
   width: 250px;
   height: 250px;
-  cursor: pointer;
+  cursor: zoom-in;
+  background-position: center;
+  background-size: 100%;
+  transition: background-size 300ms ease;
+
+  &:hover {
+    background-size: 110%;
+  }
 
   @media screen and (min-width: 300px) {
     height: 300px;
@@ -203,14 +210,13 @@ const Galery = ({ photos }) => {
               <Image
                 onClick={showModal}
                 key={key}
-                src={data.thumbnail}
-                alt=""
                 style={{
                   top: style.top,
                   left: style.left,
                   transform: `translate(${style.x}px, ${style.y}px) rotate(${style.r}deg)`,
                   opacity: style.o,
-                  boxShadow: index === arr.length - 1 ? "3px 3px 6px rgba(0,0,0,0.4)" : "none"
+                  boxShadow: index === arr.length - 1 ? "3px 3px 6px rgba(0,0,0,0.4)" : "none",
+                  backgroundImage: `url(${data.thumbnail})`
                 }}
               />
             ))}
