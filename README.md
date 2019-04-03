@@ -17,21 +17,22 @@ Website for Marta Wilczyńska-Staniul - Specialist in Aesthetic Plastic and Gene
 
 ### Roadmap
 
-- [ ] Frontend:
+- [x] Frontend:
 
   - [x] Landing Page
-  - [ ] Contact Page
+  - [x] Contact Page
   - [x] About Me Page
-  - [ ] Testimonials Page
+  - [x] Testimonials Page
   - [x] Surgical Treatments Page
-  - [ ] Destination Page
-  - [ ] Staff Page
+  - [x] Destination Page
+  - [x] Staff Page
 
 - [ ] Backend:
 
-  - [ ] Scrapping testimonials script from znanylekarz.pl
-  - [ ] Script serving /api/testimonials list of testimonials from znanylekarz.pl
+  - [ ] Scrapping testimonials script from znanylekarz.pl.
+  - [ ] Script serving /api/testimonials list of testimonials from znanylekarz.pl.
 
 - [x] Scripts:
-  - [x] Creating certificates.json and thumbnails from certificates images
-  - [x] Creating treatments.json from `.md` files containing content for all of the surgical treatments
+  - [x] Creating certificates.json and thumbnails from certificates images.
+  - [x] Creating treatments.json from `.md` files containing content for all of the surgical treatments.
+  - [x] Creating staff-galery.json from image files for staff galery images.
