@@ -12,7 +12,9 @@ import {
   faQuoteRight,
   faEye,
   faChevronLeft,
-  faChevronRight
+  faChevronRight,
+  faLocationArrow,
+  faInfoCircle
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -28,5 +30,7 @@ library.add(
   faQuoteRight,
   faEye,
   faChevronLeft,
-  faChevronRight
+  faChevronRight,
+  faLocationArrow,
+  faInfoCircle
 );

@@ -9,34 +9,15 @@ const Flex = styled.div`
 `;
 
 Flex.propTypes = {
-  direction: PropTypes.oneOf([
-    "row",
-    "column",
-    "row-reverse",
-    "column-reverse"
-  ]),
-  justify: PropTypes.oneOf([
-    "center",
-    "streach",
-    "flex-start",
-    "flex-end",
-    "space-between",
-    "space-around"
-  ]),
-  align: PropTypes.oneOf([
-    "center",
-    "streach",
-    "flex-start",
-    "flex-end",
-    "space-between",
-    "space-around"
-  ])
+  direction: PropTypes.oneOf(["row", "column", "row-reverse", "column-reverse"]),
+  justify: PropTypes.oneOf(["center", "stretch", "flex-start", "flex-end", "space-between", "space-around"]),
+  align: PropTypes.oneOf(["center", "stretch", "flex-start", "flex-end", "space-between", "space-around"])
 };
 
 Flex.defaultProps = {
   direction: "row",
   justify: "flex-start",
-  align: "streach"
+  align: "stretch"
 };
 
 export default Flex;
