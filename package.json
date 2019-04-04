@@ -9,6 +9,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "dayjs": "^1.8.12",
+    "koa": "^2.7.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-intl": "^2.8.0",
@@ -23,11 +24,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "now-build": "react-scripts build",
-    "cert": "node ./bin/create-certificates.js",
-    "treat": "node ./bin/create-treatments.js",
-    "staff": "node ./bin/create-staff.js",
-    "scripts": "npm run cert && npm run treat && npm run staff"
+    "create-certificates": "node ./bin/create-certificates.js",
+    "create-treatments": "node ./bin/create-treatments.js",
+    "create-staff": "node ./bin/create-staff.js",
+    "create-scripts": "npm run create-certificates && npm run create-treatments && npm run create-staff",
+    "now-build": "npm run create-scripts && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
