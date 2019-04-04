@@ -4,11 +4,11 @@ const path = require("path");
 const fs = require("fs");
 const sharp = require("sharp");
 
-const certificatesPath = path.resolve(__dirname, "../public/certificates/img");
+const certificatesPath = path.resolve(__dirname, "../public/static/media/certificates/img");
 const outputFilePath = path.resolve(certificatesPath, "../thumbnails");
 
-const makeImgPath = name => `/certificates/img/${name}`;
-const makeThumbnailPath = name => `/certificates/thumbnails/${name}`;
+const makeImgPath = name => `/static/media/certificates/img/${name}`;
+const makeThumbnailPath = name => `/static/media/certificates/thumbnails/${name}`;
 
 fs.readdir(certificatesPath, (err, certificateFiles) => {
   if (err) throw err;

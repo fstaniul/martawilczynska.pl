@@ -29,8 +29,9 @@ Website for Marta Wilczyńska-Staniul - Specialist in Aesthetic Plastic and Gene
 
 - [ ] Backend:
 
-  - [ ] Scrapping testimonials script from znanylekarz.pl.
-  - [ ] Script serving /api/testimonials list of testimonials from znanylekarz.pl.
+  - [x] Scrapping testimonials script from znanylekarz.pl.
+  - [x] Script serving /api/testimonials list of testimonials from znanylekarz.pl.
+  - [ ] Script to send e-mails.
 
 - [x] Scripts:
   - [x] Creating certificates.json and thumbnails from certificates images.

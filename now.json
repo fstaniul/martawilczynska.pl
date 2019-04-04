@@ -9,8 +9,11 @@
       }
     },
     {
-      "src": "api/testimonials.js",
+      "src": "api/*.js",
       "use": "@now/node"
     }
-  ]
+  ],
+  "env": {
+    "GMAIL_PASSWORD": "@gmail-password"
+  }
 }
