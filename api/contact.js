@@ -6,6 +6,7 @@ const nodemailer = require("nodemailer");
 const isEmail = require("validator/lib/isEmail");
 const escapeHTML = require("escape-html");
 const compileEmail = require("./lib/compile-email-template");
+const THANKYOU_MESSAGE_TOPICS = require("./lib/assets/thankyou-message-topics.json");
 
 const transport = nodemailer.createTransport(
   {
@@ -39,6 +40,8 @@ app.use(async ctx => {
       ctx.throw({ errors: { [key]: `Missing ${key} in body. All fields are required!` } }, 404);
   });
 
+  const locale = ["pl", "en"].includes(body.locale) ? body.locale : "en";
+
   const html = compileEmail({ ...body, message: escapeHTML(body.message).replace(/\r\n|\n/g, "<br />") }, compileEmail.TEMPLATES.NEW_MESSAGE);
 
   transport.sendMail({
@@ -46,6 +49,17 @@ app.use(async ctx => {
     replyTo: body.email,
     subject: body.topic,
     html
+  });
+
+  const topic = THANKYOU_MESSAGE_TOPICS[locale];
+  const thankYouMessage = compileEmail({ topic }, compileEmail.TEMPLATES.MESSAGE_RECEIVED[locale]);
+
+  transport.sendMail({
+    to: body.email,
+    from: "Marta Wilczyńska <martawilczynska.pl@gmail.com>",
+    replayTo: "Marta Wilczyńska <martawilczynska.pl@gmail.com>",
+    subject: topic,
+    html: thankYouMessage
   });
 });
 

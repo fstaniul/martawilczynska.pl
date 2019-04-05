@@ -18,7 +18,10 @@ fs.readdirSync(photosFolder).forEach((photo, index, photos) => {
       done++;
       if (err) console.log("Failed to transform", photoPath, "\n", err);
       else {
-        staffGaleryJSON.push({ image: `/static/staff-galery/image/${photo}`, thumbnail: `/static/staff-galery/thumbnails/${photo}` });
+        staffGaleryJSON.push({
+          image: `/static/media/staff-galery/image/${photo}`,
+          thumbnail: `/static/media/staff-galery/thumbnails/${photo}`
+        });
         console.log("Successfully transformed", photoPath);
         if (done === photos.length) {
           fs.writeFileSync(path.resolve(__dirname, "../src/assets/staff-galery.json"), JSON.stringify(staffGaleryJSON));

@@ -5,6 +5,7 @@ import { Form, Input, Textarea, Submit } from "../Forms";
 import Flex from "../Containers/Flex";
 import { isRequired, isEmail } from "../../util/validation";
 import Axios from "axios";
+import { useLocale } from "../../util/locale";
 
 const FormInputContainer = styled.div`
   padding: 0 1rem 1rem;
@@ -30,7 +31,7 @@ const FormSubmit = () => (
   </Flex>
 );
 
-export default class ContactForm extends Component {
+class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.fields = {
@@ -56,13 +57,18 @@ export default class ContactForm extends Component {
       const props = {
         label: <FormattedMessage id={`home.contact-form.label.${key}`} />
       };
-      this.fields[key].props = props;
+      this.fields[key].props = { ...this.fields[key].props, ...props };
     });
   }
 
-  onSubmit = data => Axios.post("/api/contact", data);
+  onSubmit = data => Axios.post("/api/contact", data, { params: { locale: this.props.locale } });
 
   render() {
     return <Form fields={this.fields} onSubmit={this.onSubmit} submit={<FormSubmit />} className={this.props.className} />;
   }
+}
+
+export default function ContactFormWithLocale(props) {
+  const [locale] = useLocale();
+  return <ContactForm locale={locale} {...props} />;
 }

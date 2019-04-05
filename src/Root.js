@@ -3,16 +3,16 @@ import { BrowserRouter } from "react-router-dom";
 import Router from "./views/Router";
 import { Localization } from "./util/locale";
 import { GlobalStyles } from "./util/styles";
-import { BackendService } from "./components/BackendService";
+import { TestimonialsProvider } from "./util/api/testimonials";
 
 const Root = () => {
   return (
     <BrowserRouter>
       <Localization>
         <GlobalStyles>
-          <BackendService>
+          <TestimonialsProvider>
             <Router />
-          </BackendService>
+          </TestimonialsProvider>
         </GlobalStyles>
       </Localization>
     </BrowserRouter>

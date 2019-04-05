@@ -1,84 +1,42 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
+import ErrorBlock, { ErrorTextButton } from "../../../components/ErrorBlock";
 import MultiCarousel from "../../../components/Carousels/MultiCarousel";
 import Flex from "../../../components/Containers/Flex";
 import Testimony from "../../../components/Testiomony";
+import Loader from "../../../components/Loader";
 import Heading from "../components/Testimonials/Heading";
 import SeeMoreButton from "../components/Testimonials/SeeMoreButton";
 import TestimonialsContainer from "../components/Testimonials/Container";
-
-const MOCK_DATA = [
-  {
-    content:
-      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
-    name: "mag.sendecka",
-    date: "21 grudnia 2018",
-    stars: 5
-  },
-  {
-    content:
-      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
-    name: "mag.sendecka",
-    date: "21 grudnia 2018",
-    stars: 5
-  },
-  {
-    content:
-      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
-    name: "mag.sendecka",
-    date: "21 grudnia 2018",
-    stars: 5
-  },
-  {
-    content:
-      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
-    name: "mag.sendecka",
-    date: "21 grudnia 2018",
-    stars: 5
-  },
-  {
-    content:
-      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
-    name: "mag.sendecka",
-    date: "21 grudnia 2018",
-    stars: 5
-  },
-  {
-    content:
-      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
-    name: "mag.sendecka",
-    date: "21 grudnia 2018",
-    stars: 5
-  },
-  {
-    content:
-      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
-    name: "mag.sendecka",
-    date: "21 grudnia 2018",
-    stars: 5
-  },
-  {
-    content:
-      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
-    name: "mag.sendecka",
-    date: "21 grudnia 2018",
-    stars: 5
-  },
-  {
-    content:
-      "Jestem pod wielkim wrażeniem postawy Pani Doktor. Na konsulatcję poświęca bardzo dużo czasu, uczciwie podchodzi do życzeń pacjenta, kierując się najwyższą etyką i profesjonalizmem. Jest nie tylko wyśmienitym fachowcem. Cudownym, ciepłym empatycznym specjalistą. Odmówiła wykonania zabiegu, kierując się moim dobrem. Rozmowa z Panią Dokror terapeutyzuje. Dziękuję Pani Dokror, pozostaję dalece wdzięczna. Magdalena Sendecka - Tosik",
-    name: "mag.sendecka",
-    date: "21 grudnia 2018",
-    stars: 5
-  }
-];
+import { useTestimonials } from "../../../util/api/testimonials";
 
 const Testimonials = () => {
+  const { loaded, loading, load, testimonials, error } = useTestimonials();
+
   return (
     <TestimonialsContainer>
       <Heading />
-      <MultiCarousel data={MOCK_DATA} elementWidth={500}>
-        {props => <Testimony {...props} />}
-      </MultiCarousel>
+      {loaded ? (
+        <MultiCarousel data={testimonials.slice(0, 9)} elementWidth={500}>
+          {props => <Testimony {...props} />}
+        </MultiCarousel>
+      ) : (
+        error && (
+          <ErrorBlock>
+            <FormattedMessage
+              id="testimonials.error"
+              values={{
+                here: (
+                  <ErrorTextButton onClick={load}>
+                    <FormattedMessage id="testimonials.error.here" />
+                  </ErrorTextButton>
+                )
+              }}
+            />
+          </ErrorBlock>
+        )
+      )}
+      {loading && <Loader />}
       <Flex align="center" justify="center">
         <SeeMoreButton hide="md" />
       </Flex>

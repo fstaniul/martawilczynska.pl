@@ -98,7 +98,12 @@ const Contact = () => {
             position="top"
           />
           <Separator />
-          <Info name="KCM Clinic" phone="+48 555 333 111" arrowText={<FormattedMessage id="contact.make-an-appointment" />} position="bottom" />
+          <Info
+            name="KCM Clinic"
+            phone="+48 71 75 00 636"
+            arrowText={<FormattedMessage id="contact.make-an-appointment" />}
+            position="bottom"
+          />
         </InfoWrapper>
         <ScrollDownIconContainer hide={hideScrollIcon}>
           <ScrollDownIcon />

@@ -30,10 +30,10 @@ async function scrape() {
     const content = $(this)
       .find("p.opinion__comment[itemprop=description]")
       .html();
-    const time = $(this)
+    const date = $(this)
       .find("time[itemprop=datePublished]")
       .attr("datetime");
-    opinions.push({ name, stars, content, time });
+    opinions.push({ name, stars, content, date });
   });
 
   return opinions;
