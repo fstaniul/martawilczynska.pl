@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
+import dayjs from "dayjs";
 import Stars from "./Stars";
 import { colors } from "../../util/styles";
 
@@ -27,12 +28,14 @@ const DateDisplay = styled.div`
 `;
 
 export default function Testimony({ name, date, stars, content, className, style }) {
+  const displayDate = useMemo(() => dayjs(date).format("DD MMM YYYY"), [date]);
+
   return (
     <Container className={className} style={style}>
       <Heading>
         <div>
           <Name>{name}</Name>
-          <DateDisplay>{date}</DateDisplay>
+          <DateDisplay>{displayDate}</DateDisplay>
         </div>
         <Stars stars={stars} />
       </Heading>

@@ -1,13 +1,8 @@
 import React, { useReducer, useEffect, useLayoutEffect } from "react";
 import { IntlProvider } from "react-intl";
 import { withRouter } from "react-router-dom";
-import {
-  LOCALES,
-  DEFAULT_LOCALE,
-  MESSAGES,
-  PATH_TO_LOCALE,
-  LocaleContext
-} from "../locale";
+import { LOCALES, DEFAULT_LOCALE, MESSAGES, PATH_TO_LOCALE, LocaleContext } from "../locale";
+import dayjs from "dayjs";
 
 const localeReducer = (state, locale) => {
   if (LOCALES.includes(locale)) return { locale, messages: MESSAGES[locale] };
@@ -23,9 +18,8 @@ export const Localization = withRouter(({ children, location }) => {
   });
 
   useEffect(() => {
-    if (localStorage) {
-      localStorage.setItem("locale", locale);
-    }
+    if (localStorage) localStorage.setItem("locale", locale);
+    dayjs.locale(locale); // set dayjs locale on locale change
   }, [locale]);
 
   useEffect(() => {
@@ -36,8 +30,7 @@ export const Localization = withRouter(({ children, location }) => {
     if (location.pathname === "/") return;
     const locationPathname = "/" + location.pathname.split("/")[1];
     const newLocaleInfo = PATH_TO_LOCALE[locationPathname];
-    if (newLocaleInfo && newLocaleInfo.locale !== locale)
-      changeLocale(newLocaleInfo.locale);
+    if (newLocaleInfo && newLocaleInfo.locale !== locale) changeLocale(newLocaleInfo.locale);
   }, [location.pathname]);
 
   return (

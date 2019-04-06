@@ -4,6 +4,7 @@ import Root from "./Root";
 import "./util/styles/normalize.css";
 import "./util/styles/skeleton.css";
 import "./util/fontawesome";
+import "dayjs/locale/pl"; // include pl locale for dayjs
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(<Root />, document.getElementById("react-root"));
