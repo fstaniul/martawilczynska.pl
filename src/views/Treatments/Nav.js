@@ -1,11 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { useLocale, localizePath } from "../../util/locale";
-import TREATMENTS from "../../assets/treatments.json";
-import { colors } from "../../util/styles";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { useLocale, localizePath } from '../../util/locale';
+import TREATMENTS from '../../assets/treatments.json';
+import { colors } from '../../util/styles';
 
 const Wrapper = styled.div`
+  position: sticky;
   flex: 0 0 300px;
   display: flex;
   width: 300px;
@@ -28,13 +29,13 @@ const NavigationLink = styled(NavLink)`
 
 const Nav = ({ toLeft }) => {
   const [locale] = useLocale();
-  const treatmentsLocalePath = localizePath(locale, "treatments");
+  const treatmentsLocalePath = localizePath(locale, 'treatments');
   const treatments = TREATMENTS[locale];
 
   return (
-    <Wrapper style={{ alignItems: toLeft ? "flex-start" : "flex-end" }}>
+    <Wrapper style={{ alignItems: toLeft ? 'flex-start' : 'flex-end' }}>
       {treatments.map((treatment, index) => (
-        <NavigationLink to={treatmentsLocalePath + "/" + index} key={index}>
+        <NavigationLink to={treatmentsLocalePath + '/' + index} key={index}>
           {treatment.name}
         </NavigationLink>
       ))}

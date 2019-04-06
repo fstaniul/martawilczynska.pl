@@ -1,63 +1,55 @@
-import styled from "styled-components";
-import { colors } from "../../util/styles";
-import Element from "./Element";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { colors } from '../../util/styles';
+
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+const Label = styled.label`
+  position: absolute;
+  top: ${props => (props.hasValue || props.isFocused ? '1.5rem' : '100%')};
+  left: 1rem;
+  color: ${props => (props.isFocused ? props.blue : props.hasError ? colors.red : colors.black)};
+  transform: translateY(-5px);
+  font-size: ${props => (props.isFocused || props.hasValue ? '1.2rem' : '1.5rem')};
+`;
 
 const StyledTextarea = styled.textarea`
-  outline: none;
-  width: 100%;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid ${colors.gray};
+  background: ${colors.white};
   color: ${colors.black};
-  padding: 2rem;
-  margin: 0;
+  border: none;
+  border-bottom: 2px solid ${({ hasError }) => (hasError ? colors.red : colors.gray)};
+  padding: 1rem;
+  width: 100%;
   resize: vertical;
-  height: auto;
-
-  &.error {
-    color: ${colors.red};
-    border-color: ${colors.red};
-  }
-
-  &:focus {
-    border: none;
-    border-bottom: 1px solid ${colors.blue};
-  }
 `;
 
-const StyledLabel = styled.label`
-  position: absolute;
-  top: 0px;
-  left: 2rem;
-  line-height: 60px;
-  color: ${colors.gray};
-  font-weight: 300;
-  transition-property: font-size, top;
-  transition-timing-function: linear;
-  transition-duration: 200ms;
-  padding: 0;
-  margin: 0;
-  cursor: text;
+export default function Textarea({ id, label, onFocus, onBlur, value, ...props }) {
+  const textareaRef = useRef(null);
+  const [isTextareFocused, setFocused] = useState(false);
 
-  ${StyledTextarea}.error + & {
-    color: ${colors.red};
-  }
+  const labelOnClick = useCallback(() => {
+    textareaRef.current.focus();
+  }, [textareaRef]);
 
-  ${StyledTextarea}:focus + &,
-  &.focused {
-    font-size: 1.2rem;
-    top: -1.5rem;
-  }
+  const textareaOnFocus = useCallback(event => {
+    setFocused(true);
+    if (onFocus) onFocus(event);
+  });
 
-  ${StyledTextarea}:focus + & {
-    color: ${colors.blue};
-  }
-`;
+  const textareaOnBlur = useCallback(event => {
+    setFocused(false);
+    if (onBlur) onBlur(event);
+  });
 
-const Textarea = Element(StyledTextarea, StyledLabel);
-
-Textarea.defaultProps = {
-  rows: 6
-};
-
-export default Textarea;
+  return (
+    <Wrapper>
+      <Label htmlFor={id} hasValue={value !== ''}>
+        {label}
+      </Label>
+      <StyledTextarea id={id} onFocus={textareaOnFocus} onBlur={textareaOnBlur} value={value} {...props} />
+    </Wrapper>
+  );
+}

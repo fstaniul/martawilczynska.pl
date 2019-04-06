@@ -1,58 +1,95 @@
-import styled from "styled-components";
-import { colors } from "../../util/styles";
-import Element from "./Element";
+import React, { useCallback, useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
+import { colors } from '../../util/styles';
+
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
 
 const StyledInput = styled.input`
-  height: 60px;
-  line-height: 60px;
-  padding: 2rem 0;
+  width: 100%;
+  padding: 1rem;
   border: none;
   border-bottom: 2px solid ${colors.gray};
-  padding: 0 0 0 2rem;
-  margin: 0;
+  background: ${colors.white};
   color: ${colors.black};
-  outline: none;
-  width: 100%;
 
-  &.error {
-    border-color: ${colors.red};
-    color: ${colors.red};
-  }
-
-  &:focus {
+  :focus {
     border-color: ${colors.blue};
   }
+
+  ${props =>
+    props.withError &&
+    css`
+      border-color: ${colors.red};
+    `}
 `;
 
-const StyledLabel = styled.label`
+const Label = styled.label`
   position: absolute;
-  top: 0px;
-  left: 2rem;
-  line-height: 60px;
-  color: ${colors.gray};
-  font-weight: 300;
-  transition-property: font-size, top;
-  transition-timing-function: linear;
-  transition-duration: 200ms;
-  padding: 0;
-  margin: 0;
-  cursor: text;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
 
-  ${StyledInput}.error + & {
-    color: ${colors.red};
-  }
+  ${props =>
+    (props.inputFocused || props.withValue) &&
+    css`
+      top: 100%;
+      transform: translateY(2px);
+      font-size: 1.2rem;
+    `}
 
-  ${StyledInput}:focus + &,
-  &.focused {
-    font-size: 1.2rem;
-    top: -1.5rem;
-  }
+  ${props =>
+    props.inputFocused &&
+    css`
+      color: ${colors.blue};
+    `}
 
-  ${StyledInput}:focus + & {
-    color: ${colors.blue};
-  }
+  ${props =>
+    props.withError &&
+    css`
+      color: ${colors.red};
+    `}
 `;
 
-const Input = Element(StyledInput, StyledLabel);
+export default function Input({ id, label, value, onBlur, onFocus, hasError, ...props }) {
+  const inputRef = useRef(null);
+  const [isInputFocused, setFocused] = useState(false);
 
-export default Input;
+  const labelOnClick = useCallback(() => {
+    inputRef.current.focus();
+  }, [inputRef]);
+
+  const inputOnFocus = useCallback(
+    event => {
+      setFocused(true);
+      if (onFocus) onFocus(event);
+    },
+    [onFocus]
+  );
+
+  const inputOnBlur = useCallback(
+    event => {
+      setFocused(false);
+      if (onBlur) onBlur(event);
+    },
+    [onBlur]
+  );
+
+  return (
+    <Wrapper>
+      <Label
+        htmlFor={id}
+        onClick={labelOnClick}
+        inputFocused={isInputFocused}
+        withValue={value !== ''}
+        withError={hasError}
+      >
+        {label}
+      </Label>
+      <StyledInput ref={inputRef} id={id} onFocus={inputOnFocus} onBlur={inputOnBlur} withError={hasError} {...props} />
+    </Wrapper>
+  );
+}
