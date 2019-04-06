@@ -9,7 +9,7 @@ const CarouselWrapper = styled.div`
   display: flex;
   direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 1.5rem;
   transition: all 500ms ease;
 
@@ -34,6 +34,7 @@ const ControlsWrapper = styled.div`
 
 const CarouselElementWrapper = styled.div`
   padding: 0 1.5rem;
+  max-width: ${({ elementWidth }) => elementWidth}px;
 `;
 
 const MultiCarousel = ({ data, children, elementWidth }) => {
@@ -46,10 +47,7 @@ const MultiCarousel = ({ data, children, elementWidth }) => {
   let elementsToDisplay = Math.floor(windowWidth / elementWidth);
   elementsToDisplay = elementsToDisplay < 1 ? 1 : elementsToDisplay;
 
-  const displayData = data.slice(
-    elementsToDisplay * current,
-    elementsToDisplay * (current + 1)
-  );
+  const displayData = data.slice(elementsToDisplay * current, elementsToDisplay * (current + 1));
 
   const onTransitionEnd = () =>
     setTimeout(() => {
@@ -67,22 +65,15 @@ const MultiCarousel = ({ data, children, elementWidth }) => {
 
   return (
     <ResizableWrapper>
-      <CarouselWrapper
-        onTransitionEnd={onTransitionEnd}
-        className={leaving ? "leaving" : "entering"}
-      >
+      <CarouselWrapper onTransitionEnd={onTransitionEnd} className={leaving ? "leaving" : "entering"}>
         {displayData.map((props, i) => (
-          <CarouselElementWrapper key={i}>
+          <CarouselElementWrapper key={i} elementWidth={elementWidth}>
             {children(props)}
           </CarouselElementWrapper>
         ))}
       </CarouselWrapper>
       <ControlsWrapper>
-        <Controls
-          set={setNextData}
-          sections={data.length / elementsToDisplay}
-          selected={current}
-        />
+        <Controls set={setNextData} sections={data.length / elementsToDisplay} selected={current} />
       </ControlsWrapper>
     </ResizableWrapper>
   );

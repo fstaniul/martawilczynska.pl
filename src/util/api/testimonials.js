@@ -16,7 +16,9 @@ function loadTestimonials(skip) {
 
 export function useTestimonials() {
   const context = useContext(TestimonialsContext);
-  useEffect(() => !context.loaded && context.load(), []);
+  useEffect(() => {
+    if (!context.loaded) context.load();
+  }, []);
   return context;
 }
 
@@ -26,7 +28,14 @@ function testimonialsStateReducer(state, { type, payload }) {
       return { ...state, loading: true, error: null };
 
     case ACTIONS.SUCCESS:
-      return { ...state, loading: false, loaded: true, testimonials: payload.testimonials, count: payload.count, error: null };
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        testimonials: [...state.testimonials, ...payload.testimonials],
+        count: payload.count,
+        error: null
+      };
 
     case ACTIONS.FAILURE:
       return { ...state, loading: false, error: payload };
@@ -57,6 +66,8 @@ export function TestimonialsProvider({ children }) {
       }
     );
   }, [testimonials]);
+
+  console.log(testimonials);
 
   return <TestimonialsContext.Provider value={{ loaded, loading, testimonials, count, load, error }}>{children}</TestimonialsContext.Provider>;
 }

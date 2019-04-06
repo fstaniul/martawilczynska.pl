@@ -3,7 +3,7 @@ import { FormattedMessage } from "react-intl";
 import ErrorBlock, { ErrorTextButton } from "../../../components/ErrorBlock";
 import MultiCarousel from "../../../components/Carousels/MultiCarousel";
 import Flex from "../../../components/Containers/Flex";
-import Testimony from "../../../components/Testiomony";
+import Testimony from "../../../components/Testimony";
 import Loader from "../../../components/Loader";
 import Heading from "../components/Testimonials/Heading";
 import SeeMoreButton from "../components/Testimonials/SeeMoreButton";

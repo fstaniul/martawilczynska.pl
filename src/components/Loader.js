@@ -43,7 +43,7 @@ const StyledLoader = styled.div`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background: ${({ color }) => color};
+    background: ${({ color }) => colors[color] || color};
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
 

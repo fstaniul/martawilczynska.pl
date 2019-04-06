@@ -6,11 +6,10 @@ const catchError = require("../lib/catch-error");
 
 app.use(async ctx => {
   let [err, data] = await catchError(scrape());
-  if (err) ctx.throw(500, "Scrapping from external service failed!");
+  ctx.assert(!err, 500, "Scrapping from external service failed!");
 
-  // eslint-disable-next-line no-redeclare
-  let [err] = await catchError(Review.insertMany(data));
-  if (err) ctx.throw(500, "Inserting data into db failed!");
+  [err] = await catchError(Review.insertMany(data));
+  ctx.assert(!err, 500, "Inserting data into db failed!");
 
   const response = ctx.response;
   response.status = 201;

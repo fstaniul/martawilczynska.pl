@@ -1,100 +1,50 @@
-import React, { useEffect, useCallback } from "react";
-import { FormattedMessage } from "react-intl";
-import { TransitionMotion, spring } from "react-motion";
-import useNavSetBackground from "../../components/Nav/useNavSetBackground";
-import ErrorBlock, { ErrorTextButton } from "../../components/ErrorBlock";
-import Loader from "../../components/Loader";
-import Testimony from "../../components/Testiomony";
-import { SectionHeading, SubHeading } from "../../components/Headings";
-import { useWindowWidth } from "../../util/hooks";
-import { Container, Row, Element, Wrapper, LoadMoreButton } from "./styled";
-import { colors } from "../../util/styles";
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import { useNavSetBackground } from "../../components/Nav";
+import containerBackground from "../../assets/img/testimonials_background.png";
+import { query } from "../../util/styles";
 import { useTestimonials } from "../../util/api/testimonials";
+import Loader from "../../components/Loader";
+import Heading from "./Heading";
+import TestimonialsList from "./List";
+import Error from "./Error";
+import MoreButton from "./MoreButton";
+import JumpToTop from "../../components/Buttons/JumpToTop";
 
-const MOTION_PRESET = {
-  stiffness: 130,
-  damping: 20
-};
+const Container = styled.div`
+  padding: 10rem 1.5rem 1.5rem;
+  display: block;
+  min-height: 600px;
+  background: url(${containerBackground});
+  background-position: top center;
+  background-repeat: no-repeat;
 
-const Testimonials = () => {
+  ${query.md`
+    padding: 12rem 3rem 3rem;
+  `}
+`;
+
+const StyledHeading = styled(Heading)`
+  margin-bottom: 5rem;
+`;
+
+export default function TestimonialsView() {
   const navSetBackground = useNavSetBackground();
-  useEffect(() => navSetBackground(false), []); // disable nav background on this page
-  let { loaded, loading, testimonials, load, count, error } = useTestimonials();
-  const windowWidth = useWindowWidth(); // width of the window to determine how many collumns we are displaying
-  const minRowWidth = 400; // the minimum width of a row (used for calcuating how many rows we display)
-  const maxContianerWidth = 1200; // maximum width of a contianer
+  const { loaded, loading, error, testimonials, count, load } = useTestimonials();
 
-  const rowsToDisplay = Math.max(Math.floor(Math.min(maxContianerWidth, windowWidth) / minRowWidth), 1);
-  const indexes = [];
-  for (let i = 0; i < rowsToDisplay; ++i) indexes.push(i);
-
-  const tmStyles = useCallback(
-    prev => {
-      return testimonials.map((data, index) => ({
-        key: index + "",
-        data,
-        style: {
-          opacity:
-            index === 0
-              ? spring(1, MOTION_PRESET)
-              : (prev[index - 1] && spring(prev[index - 1].style.opacity, MOTION_PRESET)) || spring(0, MOTION_PRESET)
-        }
-      }));
-    },
-    [testimonials]
-  );
+  // disable nav background on this route
+  useEffect(() => {
+    navSetBackground(false);
+  }, []);
 
   return (
-    <Wrapper>
-      <SectionHeading center={true} color="white">
-        <FormattedMessage id="testimonials.header" />
-        <SubHeading color="silver">
-          <FormattedMessage id="testimonials.subheader" />
-        </SubHeading>
-      </SectionHeading>
-      {loaded && (
-        <TransitionMotion styles={tmStyles}>
-          {interpolatedStyles => (
-            <Container rowWidth={minRowWidth} maxContainerWidth={maxContianerWidth}>
-              {indexes.map(whichIndex => (
-                <Row key={whichIndex}>
-                  {interpolatedStyles
-                    .filter(({ key }) => +key % rowsToDisplay === whichIndex)
-                    .map(({ key, style, data }) => (
-                      <Element key={key} style={{ opacity: style.opacity }}>
-                        <Testimony {...data} />
-                      </Element>
-                    ))}
-                </Row>
-              ))}
-            </Container>
-          )}
-        </TransitionMotion>
-      )}
-      {loading ? (
-        <Loader color={testimonials.length === 0 ? colors.white : colors.blue} />
-      ) : error ? (
-        <ErrorBlock>
-          <FormattedMessage
-            id="testimonials.error"
-            values={{
-              here: (
-                <ErrorTextButton onClick={load}>
-                  <FormattedMessage id="testimonials.error.here" />
-                </ErrorTextButton>
-              )
-            }}
-          />
-        </ErrorBlock>
-      ) : (
-        testimonials.length < count && (
-          <LoadMoreButton onClick={load}>
-            <FormattedMessage id="testimonials.loadmore" />
-          </LoadMoreButton>
-        )
-      )}
-    </Wrapper>
+    <Container>
+      <StyledHeading />
+      {loaded && <TestimonialsList items={testimonials} />}
+      {!loaded && error && <Error load={load} />}
+      {!loading && !error && testimonials.length < count && <MoreButton load={load} />}
+      {loading && <Loader color={loaded ? "white" : "blue"} />}
+      <JumpToTop />
+    </Container>
   );
-};
-
-export default Testimonials;
+}

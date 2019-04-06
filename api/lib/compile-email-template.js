@@ -1,15 +1,14 @@
 const fs = require("fs");
+const path = require("path");
 
 const NEW_MESSAGE = "NEW_MESSAGE";
 const MESSAGE_RECEIVED = "MESSAGE_RECEIVED";
 
-const __styles = fs.readFileSync("./assets/styles.css", { encoding: "utf8" });
-
 const TEMPLATES = {
-  [NEW_MESSAGE]: fs.readFileSync("./assets/new-message.template.html", { encoding: "utf8" }).replace("{__styles}", __styles),
+  [NEW_MESSAGE]: fs.readFileSync(path.join(__dirname, "assets/new-message.template.html"), { encoding: "utf8" }),
   [MESSAGE_RECEIVED]: {
-    en: fs.readFileSync("./assets/message-received.en.template.html", { encoding: "utf8" }).replace("{__styles}", __styles),
-    pl: fs.readFileSync("./assets/message-received.pl.template.html", { encoding: "utf8" }).replace("{__styles}", __styles)
+    en: fs.readFileSync(path.join(__dirname, "assets/message-received.en.template.html"), { encoding: "utf8" }),
+    pl: fs.readFileSync(path.join(__dirname, "assets/message-received.pl.template.html"), { encoding: "utf8" })
   }
 };
 

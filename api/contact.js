@@ -1,4 +1,3 @@
-require("dotenv").config();
 const Koa = require("koa");
 const app = new Koa();
 const bodyparser = require("koa-bodyparser");
@@ -26,19 +25,19 @@ const transport = nodemailer.createTransport(
 app.use(bodyparser({ enableTypes: ["json"] }));
 
 app.use(async ctx => {
-  if (ctx.request.method !== "POST") ctx.throw("Only POST request method is supported!", 404);
-  if (!ctx.request.accepts("json")) ctx.throw("The response will allways be application/json", 406);
-  if (!ctx.request.body) ctx.throw("Missing body or body parser error!", 404);
+  ctx.assert(ctx.request.method !== "POST", 404, "Only POST request method is supported!");
+  ctx.assert(!ctx.request.accepts("json"), 406, "The response will allways be application/json");
+  ctx.assert(!ctx.request.body, 404, "Missing body or body parser error!");
 
   const body = ctx.request.body;
 
-  if (!isEmail(body))
-    ctx.throw({ errors: { email: "Address e-mail is invalid! Please provide valid e-mail address to receive response!" } }, 404);
+  ctx.assert(!isEmail(body), 404, { errors: { email: "Address e-mail is invalid! Please provide valid e-mail address to receive response!" } });
 
-  ["name", "topic", "message"].forEach(key => {
-    if (typeof body[key] !== "string" || body[key] === "")
-      ctx.throw({ errors: { [key]: `Missing ${key} in body. All fields are required!` } }, 404);
-  });
+  ["name", "topic", "message"].forEach(key =>
+    ctx.assert(typeof body[key] !== "string" || body[key] === "", 404, {
+      errors: { [key]: `Missing ${key} in body. All fields are required!` }
+    })
+  );
 
   const locale = ["pl", "en"].includes(body.locale) ? body.locale : "en";
 

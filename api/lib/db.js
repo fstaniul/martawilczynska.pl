@@ -3,7 +3,7 @@ module.exports = exports = {};
 const mongoose = require("mongoose");
 
 // SETUP A CONNECTION
-mongoose.connect(`mongodb+srv://martawilczynska:${process.env.MONGODB_PASSWORD}@martawilczynska-4ri9y.mongodb.net/test?retryWrites=true`, {
+mongoose.connect(`mongodb+srv://martawilczynska:${process.env.MONGODB_PASSWORD}@martawilczynska-4ri9y.mongodb.net/website?retryWrites=true`, {
   useNewUrlParser: true
 });
 
