@@ -61,10 +61,16 @@ class ContactForm extends Component {
     });
   }
 
-  onSubmit = data => Axios.post("/api/contact", data, { params: { locale: this.props.locale } });
+  onSubmit = data =>
+    Axios.post("/api/contact", data, { params: { locale: this.props.locale } }).then(
+      res => console.log(res),
+      err => console.error(err)
+    );
 
   render() {
-    return <Form fields={this.fields} onSubmit={this.onSubmit} submit={<FormSubmit />} className={this.props.className} />;
+    return (
+      <Form fields={this.fields} onSubmit={this.onSubmit} submit={<FormSubmit />} className={this.props.className} />
+    );
   }
 }
 
