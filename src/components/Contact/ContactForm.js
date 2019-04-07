@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useRef, useCallback, useMemo } from 'react';
+import React, { useReducer, useCallback, useMemo, useState } from 'react';
 import isEmail from 'validator/lib/isEmail';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -29,7 +29,6 @@ function reducer(state, action) {
 }
 
 function ContactForm({ intl }) {
-  const formRef = useRef(null);
   const [locale] = useLocale();
   const [status, setStatus] = useState('pending');
   const [data, setData] = useReducer(reducer, {
@@ -56,7 +55,8 @@ function ContactForm({ intl }) {
   }, [errors]);
 
   const wasValidated = useCallback(() => {
-    return Object.values(validate).reduce((acc, value) => value && acc, true);
+    console.log('validated', validated);
+    return Object.values(validated).reduce((acc, value) => value && acc, true);
   }, [validated]);
 
   const fields = useMemo(() => [
@@ -75,19 +75,24 @@ function ContactForm({ intl }) {
     setError({ name, value: isOk ? null : `contact.form.error.${name}` });
   };
 
-  const onSubmit = useCallback(() => {
-    if (hasError()) return;
-    if (!wasValidated()) return fields.forEach(field => validate(field.name));
+  const onSubmit = useCallback(
+    event => {
+      event.preventDefault();
+      fields.forEach(field => validate(field.name)(data[field.name])); // run validation
+      if (hasError() || !wasValidated()) return;
 
-    axios
-      .post('/api/contact', data, { params: { locale } })
-      .then(() => setStatus('success'))
-      .catch(() => setStatus('error'));
-  }, [locale, data, fields, validate]);
+      setStatus('loading');
+      return axios
+        .post('/api/contact', data, { params: { locale } })
+        .then(() => setStatus('success'))
+        .catch(() => setStatus('error'));
+    },
+    [locale, data, fields, wasValidated, hasError, validate]
+  );
 
   return (
-    <Form onSubmit={onSubmit} ref={formRef}>
-      {fields.map(({ Component, ...props }) => (
+    <Form onSubmit={onSubmit} setState={setStatus} state={status} anotherMessageId="contact.form.success.another">
+      {fields.map(({ Component = Input, ...props }) => (
         <FieldContainer key={props.name}>
           <Component
             {...props}
@@ -97,16 +102,12 @@ function ContactForm({ intl }) {
             onBlur={validate(props.name)}
             hasError={!!errors[props.name]}
           />
-          {errors[props.name] !== null && (
-            <ErrorMessage>
-              <FormattedMessage id={errors[props.name]} />
-            </ErrorMessage>
-          )}
+          {errors[props.name] !== null && <ErrorMessage message={errors[props.name]} />}
         </FieldContainer>
       ))}
       <SubmitButtonContainer>
         <SubmitButton type="submit">
-          <FormattedMessage id="contact.form.send" />
+          <FormattedMessage id="contact.form.submit" />
         </SubmitButton>
       </SubmitButtonContainer>
     </Form>

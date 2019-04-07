@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Root from "./Root";
-import "./util/styles/normalize.css";
-import "./util/styles/skeleton.css";
-import "./util/fontawesome";
-import "dayjs/locale/pl"; // include pl locale for dayjs
-import * as serviceWorker from "./serviceWorker";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Root from './Root';
+import './util/styles/normalize.css';
+import './util/styles/skeleton.css';
+import './util/fontawesome';
+import 'dayjs/locale/pl'; // include pl locale for dayjs
+import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Root />, document.getElementById("react-root"));
+ReactDOM.render(<Root />, document.getElementById('react-root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,13 +1,13 @@
-import React, { createContext, useContext, useReducer, useEffect, useCallback } from "react";
-import axios from "axios";
+import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
+import axios from 'axios';
 
 const TestimonialsContext = createContext();
 
-const TESTIMONIALS_URL = "/api/testimonials";
+const TESTIMONIALS_URL = '/api/testimonials';
 const ACTIONS = {
-  LOADING: "LOADING",
-  SUCCESS: "SUCCESS",
-  FAILURE: "FAILURE"
+  LOADING: 'LOADING',
+  SUCCESS: 'SUCCESS',
+  FAILURE: 'FAILURE'
 };
 
 function loadTestimonials(skip) {
@@ -67,7 +67,9 @@ export function TestimonialsProvider({ children }) {
     );
   }, [testimonials]);
 
-  console.log(testimonials);
-
-  return <TestimonialsContext.Provider value={{ loaded, loading, testimonials, count, load, error }}>{children}</TestimonialsContext.Provider>;
+  return (
+    <TestimonialsContext.Provider value={{ loaded, loading, testimonials, count, load, error }}>
+      {children}
+    </TestimonialsContext.Provider>
+  );
 }

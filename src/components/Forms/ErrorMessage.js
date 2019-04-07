@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { colors } from '../../util/styles';
+import ResizableWrapper from '../ResizableWrapper';
 
-const Wrapper = styled.div`
+const Wrapper = styled(ResizableWrapper)`
   font-size: 1.2rem;
   font-weight: 700;
   color: ${colors.red};

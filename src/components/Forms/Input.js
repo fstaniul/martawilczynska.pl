@@ -5,37 +5,38 @@ import { colors } from '../../util/styles';
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
+  margin-bottom: 2rem;
 `;
 
 const StyledInput = styled.input`
   width: 100%;
   padding: 1rem;
   border: none;
-  border-bottom: 2px solid ${colors.gray};
+  border-bottom: 2px solid ${({ hasError }) => (hasError ? colors.red : colors.gray)};
   background: ${colors.white};
   color: ${colors.black};
+  margin: 0;
+  background: transparent;
 
   :focus {
-    border-color: ${colors.blue};
+    border-color: ${({ hasError }) => (hasError ? colors.red : colors.blue)};
+    outline: none;
   }
-
-  ${props =>
-    props.withError &&
-    css`
-      border-color: ${colors.red};
-    `}
 `;
 
 const Label = styled.label`
   position: absolute;
-  top: 50%;
+  top: 10px;
   left: 10px;
-  transform: translateY(-50%);
   font-size: 1.5rem;
+  color: ${colors.gray};
+  font-weight: 400;
+  transition: all 200ms ease;
 
   ${props =>
     (props.inputFocused || props.withValue) &&
     css`
+      left: 0;
       top: 100%;
       transform: translateY(2px);
       font-size: 1.2rem;
@@ -48,7 +49,7 @@ const Label = styled.label`
     `}
 
   ${props =>
-    props.withError &&
+    props.hasError &&
     css`
       color: ${colors.red};
     `}
@@ -85,11 +86,11 @@ export default function Input({ id, label, value, onBlur, onFocus, hasError, ...
         onClick={labelOnClick}
         inputFocused={isInputFocused}
         withValue={value !== ''}
-        withError={hasError}
+        hasError={hasError}
       >
         {label}
       </Label>
-      <StyledInput ref={inputRef} id={id} onFocus={inputOnFocus} onBlur={inputOnBlur} withError={hasError} {...props} />
+      <StyledInput ref={inputRef} id={id} onFocus={inputOnFocus} onBlur={inputOnBlur} hasError={hasError} {...props} />
     </Wrapper>
   );
 }
