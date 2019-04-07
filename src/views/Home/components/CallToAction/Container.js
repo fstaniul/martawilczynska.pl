@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { colors, query } from "../../../../util/styles";
-import ClinicBackground from "../../../../components/Containers/ClinicBackground";
+import styled from 'styled-components';
+import { colors, query } from '../../../../util/styles';
+import ClinicBackground from '../../../../components/Containers/ClinicBackground';
 
 export default styled(ClinicBackground)`
   position: relative;
@@ -21,6 +21,7 @@ export default styled(ClinicBackground)`
 `;
 
 export const TextWrapper = styled.div`
+  position: relative;
   z-index: 100;
   flex: 1 1 100%;
   display: flex;

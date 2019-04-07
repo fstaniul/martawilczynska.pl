@@ -1,17 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
-import { colors } from "../../util/styles";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { colors } from '../../util/styles';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 `;
 
 const Line = styled.span`
-  background: ${({ isSelected }) => (isSelected ? colors.gray : "#9A9A9A")};
+  background: ${({ isSelected }) => (isSelected ? colors.gray : '#9A9A9A')};
   height: 5px;
   width: 50px;
   position: absolute;
@@ -21,7 +22,6 @@ const Line = styled.span`
 `;
 
 const Control = styled.button`
-  flex: 1 auto;
   background: transparent;
   border: none;
   outline: none;

@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import { FormattedMessage } from "react-intl";
-import { colors, query } from "../../util/styles";
-import ClinicBackground from "../../components/Containers/ClinicBackground";
-import SideBySide, { Left } from "../../components/Containers/SideBySide";
-import useNavSetBackground from "../../components/Nav/useNavSetBackground";
-import ContactForm from "../../components/Contact/ContactForm";
-import { SideBySideLadyImage } from "../../components/OpenEyesLadyImage";
-import Info from "./Info";
-import { SectionHeading, SubHeading } from "../../components/Headings";
-import ScrollDownIcon from "./ScrollDownIcon";
-import useIsScrolledPast from "../../util/hooks/useIsScrolledPast";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
+import { colors, query } from '../../util/styles';
+import ClinicBackground from '../../components/Containers/ClinicBackground';
+import SideBySide, { Left } from '../../components/Containers/SideBySide';
+import useNavSetBackground from '../../components/Nav/useNavSetBackground';
+import ContactForm from '../../components/Contact/ContactForm';
+import { SideBySideLadyImage } from '../../components/OpenEyesLadyImage';
+import Info from './Info';
+import { SectionHeading, SubHeading } from '../../components/Headings';
+import ScrollDownIcon from '../../components/ScrollDownIcon';
 
 const InfoContainer = styled.div`
   position: relative;
@@ -66,24 +65,11 @@ const FormWrapper = styled(Left)`
   `}
 `;
 
-const ScrollDownIconContainer = styled.div`
-  line-height: 1em;
-  display: block;
-  font-size: 10rem;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: ${({ hide }) => (hide ? 0 : 1)};
-  transition: opacity 150ms ease;
-`;
-
 const Contact = () => {
   const navSetBackground = useNavSetBackground();
   useEffect(() => {
     navSetBackground(false);
   }, [navSetBackground]);
-  const hideScrollIcon = useIsScrolledPast(100);
 
   return (
     <ClinicBackground>
@@ -105,13 +91,11 @@ const Contact = () => {
             position="bottom"
           />
         </InfoWrapper>
-        <ScrollDownIconContainer hide={hideScrollIcon}>
-          <ScrollDownIcon />
-        </ScrollDownIconContainer>
+        <ScrollDownIcon />
       </InfoContainer>
       <FormContainer>
         <FormWrapper>
-          <SectionHeading color="white" style={{ padding: "0 1rem" }} center={true}>
+          <SectionHeading color="white" style={{ padding: '0 1rem' }} center={true}>
             <FormattedMessage id="contact.form.header" />
             <SubHeading color="silver">
               <FormattedMessage id="contact.form.subheader" />

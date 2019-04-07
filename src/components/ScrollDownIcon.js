@@ -1,13 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { colors } from "../../util/styles";
+import React from 'react';
+import styled from 'styled-components';
+import { colors } from '../util/styles';
+import useIsScrolledPast from '../util/hooks/useIsScrolledPast';
 
 const StyledSVG = styled.svg`
   width: 1em;
   fill: ${colors.white};
 `;
 
-const ScrollDownIcon = () => {
+const MouseIcon = () => {
   return (
     <StyledSVG
       version="1.1"
@@ -34,4 +35,28 @@ const ScrollDownIcon = () => {
   );
 };
 
-export default ScrollDownIcon;
+const ScrollDownIconContainer = styled.div`
+  line-height: 1em;
+  display: block;
+  font-size: 10rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: ${({ hide }) => (hide ? 0 : 1)};
+  transition: opacity 150ms ease;
+`;
+
+export default function ScrollDown({ hideHeight }) {
+  const hide = useIsScrolledPast(hideHeight);
+
+  return (
+    <ScrollDownIconContainer hide={hide}>
+      <MouseIcon />
+    </ScrollDownIconContainer>
+  );
+}
+
+ScrollDown.defaultProps = {
+  hideHeight: 0
+};
