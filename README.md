@@ -23,12 +23,15 @@ App is served using serverless platform ZEIT Now
 - [x] Frontend:
 
   - [x] Landing Page
+    - [ ] Add more spacing below patients' testimonials
   - [x] Contact Page
+    - [ ] Update new version of contact displaying different clinic locations
   - [x] About Me Page
   - [x] Testimonials Page
   - [x] Surgical Treatments Page
   - [x] Destination Page
-  - [x] Staff Page
+  - [x] Clinic and Staff Page
+    - [ ] Update text to reflect the actual state of buisness.
 
 - [x] Backend:
 
@@ -41,3 +44,4 @@ App is served using serverless platform ZEIT Now
   - [x] Creating certificates.json and thumbnails from certificates images.
   - [x] Creating treatments.json from `.md` files containing content for all of the surgical treatments.
   - [x] Creating staff-galery.json from image files for staff galery images.
+    - [ ] Add sorting of the images by name (they are ordered 1 - 4 and so on)
