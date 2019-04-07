@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { query } from "../../util/styles";
+import styled from 'styled-components';
+import { query } from '../../util/styles';
 
 export const DirectionsContainer = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ export const DirectionsContainer = styled.div`
 
   ${query.md`
     flex-flow: row nowrap;
-    min-height: 100vh;
+    height: 100vh;
   `};
 `;
 
@@ -23,7 +23,6 @@ export const MapWrapper = styled.div`
   margin-top: 3rem;
   ${query.md`
     margin-top: 0;
-    margin-left: 3rem;
     height: auto;
   `}
 `;
@@ -37,5 +36,9 @@ export const LeftWrapper = styled.div`
 
   ${query.md`
     width: 430px;
+    height: 100%;
+    padding-right: 2rem;
+    margin-right: 1rem;
+    overflow-y: auto;
   `}
 `;

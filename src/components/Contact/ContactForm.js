@@ -55,7 +55,6 @@ function ContactForm({ intl }) {
   }, [errors]);
 
   const wasValidated = useCallback(() => {
-    console.log('validated', validated);
     return Object.values(validated).reduce((acc, value) => value && acc, true);
   }, [validated]);
 

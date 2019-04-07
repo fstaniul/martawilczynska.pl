@@ -62,5 +62,6 @@
   "directions.show-direction": "WSKAZÓWKI{br}DOJAZDU",
   "directions.monday-friday": "poniedziałek-piątek",
   "directions.saturday": "sobota",
-  "directions.info": "Wciśnij przycisk \"wskazówki dojazu\", aby zobaczyć położenie tego miejsca na mapie."
+  "directions.info": "Wciśnij przycisk \"wskazówki dojazu\", aby zobaczyć położenie tego miejsca na mapie.",
+  "directions.notes.consultation-only": "(tylko konsultacje)"
 }

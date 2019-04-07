@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { colors } from "../../util/styles";
-import ShowDirectionsButton from "./ShowDirectionsButton";
+import React from 'react';
+import styled from 'styled-components';
+import { colors } from '../../util/styles';
+import ShowDirectionsButton from './ShowDirectionsButton';
 
 const Wrapper = styled.div`
   display: flex;
@@ -47,11 +47,22 @@ const Hours = styled.div`
   color: ${colors.gray};
 `;
 
-function Directions({ name, street, town, phone, email, children, onClick, active }) {
+const Note = styled.span`
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: ${colors.gray};
+  letter-spacing: 0;
+`;
+
+function Directions({ name, street, town, phone, email, children, note, onClick, active }) {
   return (
     <Wrapper>
       <InfoContainer>
-        <Name active={active}>{name}</Name>
+        <Name active={active}>
+          {name}
+          <Note>{note}</Note>
+        </Name>
         <Section>
           <Text>{street}</Text>
           <Text>{town}</Text>
@@ -68,5 +79,9 @@ function Directions({ name, street, town, phone, email, children, onClick, activ
     </Wrapper>
   );
 }
+
+Directions.defaultProperty = {
+  note: null
+};
 
 export default Directions;
