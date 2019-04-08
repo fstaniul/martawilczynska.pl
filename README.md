@@ -23,7 +23,6 @@ App is served using serverless platform ZEIT Now
 - [x] Frontend:
 
   - [x] Landing Page
-    - [ ] Add more spacing below patients' testimonials
   - [x] Contact Page
     - [ ] Update new version of contact displaying different clinic locations
   - [x] About Me Page
@@ -32,6 +31,7 @@ App is served using serverless platform ZEIT Now
   - [x] Destination Page
   - [x] Clinic and Staff Page
     - [ ] Update text to reflect the actual state of buisness.
+  - [ ] Create and update favicon to stop using reacts default one :/
 
 - [x] Backend:
 

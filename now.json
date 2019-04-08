@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "martawilczynska",
+  "regions": ["sfo", "bru"],
   "builds": [
     {
       "src": "package.json",
