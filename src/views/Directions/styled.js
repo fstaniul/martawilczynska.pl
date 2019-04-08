@@ -28,10 +28,6 @@ export const MapWrapper = styled.div`
 `;
 
 export const LeftWrapper = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
   flex: 0 0 430px;
 
   ${query.md`
