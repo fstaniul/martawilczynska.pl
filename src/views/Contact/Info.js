@@ -1,81 +1,71 @@
-import React from "react";
-import styled from "styled-components";
-import { colors, query } from "../../util/styles";
-import arrowTop from "../../assets/img/arrow_top.png";
-import arrowBottom from "../../assets/img/arrow_bottom.png";
+import React from 'react';
+import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
+import { colors } from '../../util/styles';
 
-const Wrapper = styled.div`
-  position: relative;
+const Container = styled.div`
+  text-align: center;
   color: ${colors.white};
-  flex: 1;
-  text-align: left;
-  padding: 1rem 0;
 
-  ${query.md`
-    text-align: ${({ textAlign }) => textAlign};
-  `}
-`;
-
-Wrapper.defaultProps = {
-  textAlign: "left"
-};
-
-const Name = styled.div`
-  font-size: 3rem;
-  line-height: 3.4rem;
-  font-weight: 700;
-`;
-
-const Phone = styled.div`
-  font-size: 3rem;
-  line-height: 3.4rem;
-`;
-
-const EMail = styled.a`
-  display: block;
-  color: ${colors.silver};
-  font-size: 2rem;
-  text-decoration: none;
-
-  &:hover {
-    color: ${colors.white};
-    text-decoration: none;
+  div,
+  a {
+    line-height: 1em;
+    margin-bottom: 0.5rem;
   }
 `;
 
-const ArrowWrapper = styled.div`
-  position: absolute;
-  font-family: "Indie Flower", cursive;
+const Note = styled.div`
+  font-size: 2.4rem;
+  font-family: 'Indie Flower', cursive;
+  margin-bottom: 2rem;
 `;
 
-const ArrowImage = styled.img`
-  width: 100px;
-  padding: 1rem 0.3rem;
+const Name = styled.div`
+  font-size: 4.2rem;
+  font-weight: 300;
+  letter-spacing: -0.1rem;
+  margin-bottom: 1rem;
 `;
 
-const Info = ({ name, phone, email, textAlign, arrowText, position }) => {
-  const isTop = position === "top";
+const Phone = styled.a`
+  text-decoration: none;
+  color: ${colors.white};
+  font-size: 3rem;
+  font-weight: 400;
+  cursor: pointer;
 
+  :hover {
+    color: ${colors.white};
+    text-decoration: underline;
+  }
+`;
+
+const Email = styled.a`
+  text-decoration: none;
+  color: ${colors.white};
+  font-size: 2.4rem;
+  font-weight: 400;
+  cursor: pointer;
+
+  :hover {
+    color: ${colors.white};
+    text-decoration: underline;
+  }
+`;
+
+export default function Info() {
   return (
-    <Wrapper textAlign={textAlign}>
-      <Name>{name}</Name>
-      <Phone>{phone}</Phone>
-      <EMail href={"mailto:" + email}>{email}</EMail>
-      <ArrowWrapper
-        style={
-          isTop ? { right: 70, bottom: "100%" } : { left: 70, top: "100%" }
-        }
-      >
-        {isTop && arrowText}
-        <ArrowImage
-          src={isTop ? arrowTop : arrowBottom}
-          alt=""
-          style={{ verticalAlign: isTop ? "top" : "bottom" }}
-        />
-        {!isTop && arrowText}
-      </ArrowWrapper>
-    </Wrapper>
+    <Container>
+      <Note>
+        <FormattedMessage id="contact.ask-question" />:
+      </Note>
+      <div>
+        <Name>Marta Wilczyńska-Staniul</Name>
+      </div>
+      <div>
+        <Phone href="tel:+48501531926">+48 501 531 926</Phone>
+      </div>
+      <Email href="mailto:martawilczynska.pl@gmail.com">martawilczynska.pl@gmail.com</Email>
+    </Container>
   );
-};
-
-export default Info;
+}
