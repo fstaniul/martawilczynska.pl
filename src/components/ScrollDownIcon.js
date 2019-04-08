@@ -47,11 +47,11 @@ const ScrollDownIconContainer = styled.div`
   transition: opacity 150ms ease;
 `;
 
-export default function ScrollDown({ hideHeight }) {
+export default function ScrollDown({ hideHeight, className, style }) {
   const hide = useIsScrolledPast(hideHeight);
 
   return (
-    <ScrollDownIconContainer hide={hide}>
+    <ScrollDownIconContainer hide={hide} className={className} style={style}>
       <MouseIcon />
     </ScrollDownIconContainer>
   );
