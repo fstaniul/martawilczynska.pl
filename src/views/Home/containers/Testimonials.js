@@ -10,7 +10,7 @@ const Testimonials = () => {
     <TestimonialsContainer>
       <Heading />
       <TestimonialsDisplay />
-      <Flex align="center" justify="center">
+      <Flex align="center" justify="center" style={{ marginTop: '3rem' }}>
         <SeeMoreButton hide="md" />
       </Flex>
     </TestimonialsContainer>
