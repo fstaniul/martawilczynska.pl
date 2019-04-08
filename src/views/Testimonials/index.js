@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import { useNavSetBackground } from "../../components/Nav";
-import containerBackground from "../../assets/img/testimonials_background.png";
-import { query } from "../../util/styles";
-import { useTestimonials } from "../../util/api/testimonials";
-import Loader from "../../components/Loader";
-import Heading from "./Heading";
-import TestimonialsList from "./List";
-import Error from "./Error";
-import MoreButton from "./MoreButton";
-import JumpToTop from "../../components/Buttons/JumpToTop";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { useNavSetBackground } from '../../components/Nav';
+import containerBackground from '../../assets/img/testimonials_background.png';
+import { query } from '../../util/styles';
+import { useTestimonials } from '../../util/api/testimonials';
+import Loader from '../../components/Loader';
+import Heading from './Heading';
+import TestimonialsList from './List';
+import Error from './Error';
+import MoreButton from './MoreButton';
+import JumpToTop from '../../components/Buttons/JumpToTop';
 
 const Container = styled.div`
   padding: 10rem 1.5rem 1.5rem;
@@ -37,13 +37,15 @@ export default function TestimonialsView() {
     navSetBackground(false);
   }, []);
 
+  const allLoaded = testimonials.length === count;
+
   return (
     <Container>
       <StyledHeading />
-      {loaded && <TestimonialsList items={testimonials} />}
+      {loaded && <TestimonialsList items={testimonials} loading={loading} load={load} allLoaded={allLoaded} />}
       {!loaded && error && <Error load={load} />}
-      {!loading && !error && testimonials.length < count && <MoreButton load={load} />}
-      {loading && <Loader color={loaded ? "white" : "blue"} />}
+      {!loading && !error && !allLoaded && <MoreButton load={load} />}
+      {loading && <Loader color={loaded ? 'white' : 'blue'} />}
       <JumpToTop />
     </Container>
   );
