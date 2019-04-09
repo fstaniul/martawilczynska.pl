@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
+
+function scrolledPast(value) {
+  return (window.scrollY || window.pageYOffset) > value;
+}
 
 function useIsScrolledPast(value) {
-  const [isScrolled, setScrolled] = useState((window.scrollY || window.pageYOffset) > value);
+  const [isScrolled, setScrolled] = useState(scrolledPast(value));
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    setScrolled(scrolledPast(value));
     function listener() {
-      if ((window.scrollY || window.pageYOffset) > value) setScrolled(true);
+      if (scrolledPast(value)) setScrolled(true);
       else setScrolled(false);
     }
     window.addEventListener('scroll', listener, { passive: true });
