@@ -8,7 +8,6 @@ const useScrollValue = () => {
   const [scroll, setScroll] = useState(windowScroll());
 
   useLayoutEffect(() => {
-    console.log('effect', windowScroll());
     setScroll(windowScroll());
     const listener = () => setScroll(window.pageYOffset || window.screenY);
     window.addEventListener('scroll', listener);

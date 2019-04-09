@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../util/styles';
+import { colors } from '../../../util/styles';
 
 const ControlContainer = styled.div`
   position: absolute;
@@ -27,7 +27,7 @@ const ControlCircle = styled.span`
   }
 `;
 
-export default function Control({ text, setActive, pos, active }) {
+export default function MapControl({ text, setActive, pos, active }) {
   return (
     <ControlContainer onClick={setActive} x={pos.x} y={pos.y}>
       <ControlCircle active={active} />

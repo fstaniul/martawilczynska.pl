@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import { colors } from '../../util/styles';
+import Note from './Note';
 
 const Container = styled.div`
   text-align: center;
@@ -12,12 +13,6 @@ const Container = styled.div`
     line-height: 1em;
     margin-bottom: 0.5rem;
   }
-`;
-
-const Note = styled.div`
-  font-size: 2.4rem;
-  font-family: 'Indie Flower', cursive;
-  margin-bottom: 2rem;
 `;
 
 const Name = styled.div`
