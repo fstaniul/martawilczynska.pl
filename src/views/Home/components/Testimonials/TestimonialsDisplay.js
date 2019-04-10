@@ -1,10 +1,11 @@
-import React, { useReducer } from 'react';
+import React, { useState, useCallback } from 'react';
 import { TransitionMotion, spring } from 'react-motion';
 import styled from 'styled-components';
 import SELECTED_TESTIMONIALS from '../../../../assets/selected-testimonials.json';
 import Testimony from '../../../../components/Testimony';
 import Controls from '../../../../components/Carousels/Controls';
 import ResizableWrapper from '../../../../components/ResizableWrapper';
+import { useStartStopInterval } from '../../../../util/hooks';
 
 const Container = styled(ResizableWrapper)`
   position: relative;
@@ -13,12 +14,15 @@ const Container = styled(ResizableWrapper)`
   overflow: visible;
 `;
 
-function reducer(state, current) {
-  return { previous: state.selected, selected: current };
-}
-
 export default function TestimonialsDisplay() {
-  const [{ selected, previous }, setCurrent] = useReducer(reducer, { selected: 0, previous: 0 });
+  const [{ selected, previous }, setState] = useState({ selected: 0, previous: 0 });
+  const setNext = useCallback(
+    () =>
+      setState(state => ({ selected: (state.selected + 1) % SELECTED_TESTIMONIALS.length, previous: state.selected })),
+    []
+  );
+  const setCurrent = current => setState(state => ({ selected: current, previous: state.selected }));
+  const [startInterval, stopInterval] = useStartStopInterval(setNext, 3000);
 
   const onEnter = enteringStyle => {
     const isAfter = +enteringStyle.key > previous;
@@ -41,7 +45,7 @@ export default function TestimonialsDisplay() {
   const styles = [{ key: selected + '', style: { opacity: spring(1), x: spring(0), leaving: 0 } }];
 
   return (
-    <>
+    <div onMouseEnter={stopInterval} onMouseLeave={startInterval}>
       <TransitionMotion styles={styles} willEnter={onEnter} willLeave={onLeave}>
         {interpolatedStyles => (
           <Container>
@@ -64,6 +68,6 @@ export default function TestimonialsDisplay() {
       <div>
         <Controls set={setCurrent} selected={selected} sections={SELECTED_TESTIMONIALS.length} />
       </div>
-    </>
+    </div>
   );
 }
