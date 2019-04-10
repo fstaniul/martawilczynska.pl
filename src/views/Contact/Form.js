@@ -14,6 +14,7 @@ const FormWrapper = styled(Left)`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: stretch;
+  padding-bottom: 3rem;
 
   ${query.lg`
     padding-left: 5rem;
