@@ -45,7 +45,7 @@ export default function TestimonialsView() {
       {loaded && <TestimonialsList items={testimonials} loading={loading} load={load} allLoaded={allLoaded} />}
       {!loaded && error && <Error load={load} />}
       {!loading && !error && !allLoaded && <MoreButton load={load} />}
-      {loading && <Loader color={loaded ? 'white' : 'blue'} />}
+      {loading && <Loader color={loaded ? 'blue' : 'white'} />}
       <JumpToTop />
     </Container>
   );
