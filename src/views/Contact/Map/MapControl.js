@@ -21,9 +21,10 @@ const ControlCircle = styled.span`
   border-radius: 10px;
   margin-right: 4px;
   background: ${props => (props.active ? colors.white : 'transparent')};
+  transition: background 200ms ease;
 
   ${ControlContainer}:hover & {
-    background: ${colors.white};
+    background: ${colors.silver};
   }
 `;
 
