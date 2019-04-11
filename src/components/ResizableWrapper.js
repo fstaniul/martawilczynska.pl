@@ -6,13 +6,13 @@ const StyledWrapper = styled.div`
   overflow: hidden;
 `;
 
-const ResizableWrapper = ({ children, className }) => {
+const ResizableWrapper = ({ children, className, max }) => {
   const [height, setHeight] = useState(0);
   const innerComponent = useRef();
-
   useLayoutEffect(() => {
     if (innerComponent.current) {
-      setHeight(innerComponent.current.offsetHeight);
+      const componentHeight = innerComponent.current.offsetHeight;
+      setHeight(height => (max ? Math.max(height, componentHeight) : componentHeight));
     }
   });
 

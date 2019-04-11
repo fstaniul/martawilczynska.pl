@@ -1,15 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import { colors } from "../../../util/styles";
+import React from 'react';
+import styled from 'styled-components';
+import { colors } from '../../../util/styles';
 
 const Wrapper = styled.div`
   padding: 1.5rem 0;
   text-align: center;
+  margin-bottom: 5rem;
 `;
 
 const Text = styled.span`
   color: ${({ color }) => colors[color] || color};
-  font-family: "Indie Flower";
+  font-family: 'Indie Flower';
   font-size: 2.5rem;
 `;
 

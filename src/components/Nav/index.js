@@ -1,13 +1,13 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
-import styled from "styled-components";
-import { NavContext } from "./NavContext";
-import NavOpenButton from "./components/NavOpenButton";
-import NavPanel from "./components/NavPanel";
-import NavHorizontalPanel from "./components/NavHorizontalPanel";
-import useWindowWidth from "../../util/hooks/useWindowWidth";
-import NavWrapper from "./components/NavWrapper";
-import useIsScrolled from "../../util/hooks/useIsScrolled";
-import LocaleSwitcher from "./components/LocaleSwitcher";
+import React, { useState, useRef, useLayoutEffect } from 'react';
+import styled from 'styled-components';
+import { NavContext } from './NavContext';
+import NavOpenButton from './components/NavOpenButton';
+import NavPanel from './components/NavPanel';
+import NavHorizontalPanel from './components/NavHorizontalPanel';
+import useWindowWidth from '../../util/hooks/useWindowWidth';
+import NavWrapper from './components/NavWrapper';
+import useIsScrolled from '../../util/hooks/useIsScrolled';
+import LocaleSwitcher from './components/LocaleSwitcher';
 
 export const NavContextConsumer = NavContext.Consumer;
 
@@ -30,7 +30,11 @@ const Nav = ({ children }) => {
   return (
     <NavContext.Provider value={{ setOpen, open, setWithBackground }}>
       <>
-        <NavWrapper withBackground={withBackground} scrolled={scrolled} style={{ transform: `translateY(${horizontal ? "0%" : "-100%"})` }}>
+        <NavWrapper
+          withBackground={withBackground}
+          scrolled={scrolled}
+          style={{ transform: `translateY(${horizontal ? '0%' : '-100%'})` }}
+        >
           <NavHorizontalPanel wrapperRef={horizontalNavRef} />
           <LocaleSwitcherWrapper>
             <LocaleSwitcher />
@@ -50,6 +54,6 @@ const Nav = ({ children }) => {
   );
 };
 
-export { default as useNavSetBackground } from "./useNavSetBackground";
+export { default as useNavSetBackground } from './useNavSetBackground';
 
 export default Nav;

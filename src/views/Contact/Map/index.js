@@ -45,11 +45,6 @@ const InfoContainer = styled.div`
 export default function Map() {
   const [{ previous, active }, setState] = useState({ previous: 0, active: 0 });
   const windowWidth = useWindowWidth();
-  const setNext = useCallback(
-    () => setState(state => ({ active: (state.active + 1) % CLINICS.length, previus: state.active })),
-    []
-  );
-  const [startInterval, stopInterval] = useStartStopInterval(setNext, 3000);
 
   const styles = [
     {
@@ -90,7 +85,7 @@ export default function Map() {
   };
 
   return (
-    <Container onMouseEnter={stopInterval} onMouseLeave={startInterval}>
+    <Container>
       <TextContainer>
         <Note>
           <FormattedMessage id="contact.clinic.contact-with" />:

@@ -11,18 +11,12 @@ const Container = styled(ResizableWrapper)`
   position: relative;
   max-width: 900px;
   margin: 0 auto 2rem;
-  overflow: visible;
+  overflow: hidden;
 `;
 
 export default function TestimonialsDisplay() {
   const [{ selected, previous }, setState] = useState({ selected: 0, previous: 0 });
-  const setNext = useCallback(
-    () =>
-      setState(state => ({ selected: (state.selected + 1) % SELECTED_TESTIMONIALS.length, previous: state.selected })),
-    []
-  );
   const setCurrent = current => setState(state => ({ selected: current, previous: state.selected }));
-  const [startInterval, stopInterval] = useStartStopInterval(setNext, 3000);
 
   const onEnter = enteringStyle => {
     const isAfter = +enteringStyle.key > previous;
@@ -45,7 +39,7 @@ export default function TestimonialsDisplay() {
   const styles = [{ key: selected + '', style: { opacity: spring(1), x: spring(0), leaving: 0 } }];
 
   return (
-    <div onMouseEnter={stopInterval} onMouseLeave={startInterval}>
+    <div>
       <TransitionMotion styles={styles} willEnter={onEnter} willLeave={onLeave}>
         {interpolatedStyles => (
           <Container>
