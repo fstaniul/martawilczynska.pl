@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "martawilczynska",
-  "regions": ["sfo", "bru"],
+  "regions": ["cdg", "bru"],
   "alias": ["martawilczynska.pl", "www.martawilczynska.pl"],
   "builds": [
     {
