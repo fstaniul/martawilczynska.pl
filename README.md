@@ -24,13 +24,11 @@ App is served using serverless platform ZEIT Now
 
   - [x] Landing Page
   - [x] Contact Page
-    - [ ] Update new version of contact displaying different clinic locations
   - [x] About Me Page
   - [x] Testimonials Page
   - [x] Surgical Treatments Page
   - [x] Destination Page
   - [x] Clinic and Staff Page
-    - [ ] Update text to reflect the actual state of buisness.
   - [ ] Create and update favicon to stop using reacts default one :/
 
 - [x] Backend:

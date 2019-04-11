@@ -7,7 +7,6 @@ import { colors, media } from '../../../util/styles';
 import { useWindowWidth } from '../../../util/hooks';
 import ClinicInfo from '../../../components/ClinicInfo';
 import ResizableWrapper from '../../../components/ResizableWrapper';
-import { useStartStopInterval } from '../../../util/hooks';
 import Note from '../Note';
 import MapControl from './MapControl';
 import PolandContourMap, { MapNotice } from './PolandContourMap';

@@ -1,11 +1,10 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { TransitionMotion, spring } from 'react-motion';
 import styled from 'styled-components';
 import SELECTED_TESTIMONIALS from '../../../../assets/selected-testimonials.json';
 import Testimony from '../../../../components/Testimony';
 import Controls from '../../../../components/Carousels/Controls';
 import ResizableWrapper from '../../../../components/ResizableWrapper';
-import { useStartStopInterval } from '../../../../util/hooks';
 
 const Container = styled(ResizableWrapper)`
   position: relative;
