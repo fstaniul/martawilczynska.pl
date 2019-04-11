@@ -24,6 +24,7 @@ export const TextWrapper = styled.div`
   position: relative;
   z-index: 100;
   flex: 1 1 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
