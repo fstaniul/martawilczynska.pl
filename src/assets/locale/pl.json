@@ -1,6 +1,8 @@
 {
   "page.title": "Marta Wilczyńska-Staniul - Specialista Chirurgii Plastycznej i Ogólnej",
   "page.loading": "Wczytywanie",
+  "page.not-found": "Przepraszamy, ale strona której szukasz została przeniesiona albo nie istnieje!{br}Jeżeli uważasz ze brakuje tutaj czegoś, {here}!",
+  "page.not-found.here": "powiadom nas o tym",
   "nav.home": "Strona Tytułowa",
   "nav.about": "O Mnie",
   "nav.treatments": "Zabiegi Operacyjne",
