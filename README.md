@@ -29,7 +29,7 @@ App is served using serverless platform ZEIT Now
   - [x] Surgical Treatments Page
   - [x] Destination Page
   - [x] Clinic and Staff Page
-  - [ ] Create and update favicon to stop using reacts default one :/
+  - [x] Create and update favicon to stop using reacts default one :/
 
 - [x] Backend:
 
@@ -42,4 +42,4 @@ App is served using serverless platform ZEIT Now
   - [x] Creating certificates.json and thumbnails from certificates images.
   - [x] Creating treatments.json from `.md` files containing content for all of the surgical treatments.
   - [x] Creating staff-galery.json from image files for staff galery images.
-    - [ ] Add sorting of the images by name (they are ordered 1 - 4 and so on)
+    - [x] Add sorting of the images by name (they are ordered 1 - 4 and so on)
