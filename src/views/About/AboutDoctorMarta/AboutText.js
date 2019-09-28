@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FormattedMessage } from "react-intl";
+import {FormattedHTMLMessage, FormattedMessage} from "react-intl";
 import { SectionHeading } from "../../../components/Headings";
 import { query, colors } from "../../../util/styles";
 
@@ -26,17 +26,9 @@ const About = () => {
       <SectionHeading style={{ borderBottom: `1px solid ${colors.blue}` }}>
         <FormattedMessage id="about.heading" />
       </SectionHeading>
-      <FormattedMessage
-        tagName="p"
+      <FormattedHTMLMessage
+        tagName="div"
         id="about.text"
-        values={{
-          br: (
-            <>
-              <br />
-              <br />
-            </>
-          )
-        }}
       />
       <FormattedMessage id="about.signature">
         {text => <Signature>{text}</Signature>}

@@ -38,7 +38,8 @@
     "create-certificates": "node ./bin/create-certificates.js",
     "create-treatments": "node ./bin/create-treatments.js",
     "create-staff": "node ./bin/create-staff.js",
-    "create-scripts": "npm run create-certificates && npm run create-treatments && npm run create-staff",
+    "create-about": "node ./bin/create-about.js",
+    "create-scripts": "npm run create-certificates && npm run create-treatments && npm run create-staff && npm run create-about",
     "now-build": "npm run create-scripts && npm run build"
   },
   "eslintConfig": {
