@@ -2,7 +2,6 @@
   "version": 2,
   "name": "martawilczynska",
   "regions": ["cdg", "bru"],
-  "alias": ["martawilczynska.pl", "www.martawilczynska.pl"],
   "builds": [
     {
       "src": "package.json",
