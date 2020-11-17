@@ -119,7 +119,7 @@ export default function Map() {
           <MapNotice>
             <FormattedMessage id="contact.map.notice" />
           </MapNotice>
-          {CLINICS.map(({ mapPin }, index) => (
+          {CLINICS.filter(c => c.mapPin).map(({ mapPin }, index) => (
             <MapControl key={index} {...mapPin} setActive={setActive(index)} active={active === index} />
           ))}
         </PolandContourMap>
