@@ -48,6 +48,15 @@ const Email = styled.a`
   }
 `;
 
+const Address = styled.div`
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    
+    ${Container} & {
+        line-height: 1.2em;
+    }
+`
+
 export default function Info() {
   return (
     <Container>
@@ -61,6 +70,10 @@ export default function Info() {
         <Phone href="tel:+48501531926">+48 501 531 926</Phone>
       </div>
       <Email href="mailto:martawilczynska.pl@gmail.com">martawilczynska.pl@gmail.com</Email>
+      <Address>
+          ul. Malownicza 5<br/>
+          54-081 Wrocław
+      </Address>
     </Container>
   );
 }

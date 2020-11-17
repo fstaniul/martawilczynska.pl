@@ -13,7 +13,6 @@ const CLINICS = [
             map:
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2501.453290270165!2d16.878483215482962!3d51.17386777958174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470f9521a4866fb7%3A0xb444b5e511901b18!2sMalownicza%205%2C%2054-081%20Wroc%C5%82aw!5e0!3m2!1sen!2spl!4v1605642733764!5m2!1sen!2spl',
         },
-        mapPin: {text: 'Wrocław', pos: {x: 120, y: 270}}
     },
     {
         contact: {
@@ -23,7 +22,7 @@ const CLINICS = [
             phone: '+48 570 200 916',
             email: 'kontakt@hauzerclinic.com',
             map:
-                'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.851322087731!2d17.06160701547709!3d51.03736667956069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc348d325b88d%3A0xacb464c0137f455c!2sOrla%205c%2C%2055-010%20%C5%BBerniki%20Wroc%C5%82awskie!5e0!3m2!1sen!2spl!4v1605642948332!5m2!1sen!2spl',
+                'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.848414473823!2d17.061612715477178!3d51.03742037956058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc36627f38a45%3A0x41e50c226122e699!2sHauzer%20Clinic%20-%20dr%20n%20med%20Willy%20Hauzer%20specjalista%20angiochirurg%2C%20chirurg%2C%20lekarz%20medycyny%20estetycznej!5e0!3m2!1sen!2spl!4v1605645369973!5m2!1sen!2spl',
         },
         mapPin: {text: 'Żerniki Wrocławskie', pos: {x: 130, y: 290}}
     },
@@ -37,6 +36,7 @@ const CLINICS = [
             map:
                 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2502.4725881225913!2d16.921842115482146!3d51.15507627957877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc27b2b70b461%3A0xa29a4a12dec16fe2!2sDolno%C5%9Bl%C4%85skie%20Centrum%20Chirurgii%20R%C4%99ki%20i%20Medycyny%20Estetycznej%20Chiroplastica%20Ahmed%20Elsaftawy!5e0!3m2!1sen!2spl!4v1605643439554!5m2!1sen!2spl',
         },
+        mapPin: {text: 'Wrocław', pos: {x: 120, y: 270}}
     },
     {
         contact: {
